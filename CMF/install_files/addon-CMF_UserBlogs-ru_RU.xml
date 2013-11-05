@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Russian (RU)" date_format="j M Y" time_format="H:i" decimal_point="," thousands_separator="." language_code="ru-RU" text_direction="LTR" addon_id="CMF_UserBlogs">
+  <phrase title="cmf_userblog_comments" addon_id="CMF_UserBlogs" version_id="1" version_string="1.0.0"><![CDATA[Комментарии]]></phrase>
+  <phrase title="cmf_userblog_entries" addon_id="CMF_UserBlogs" version_id="1" version_string="1.0.0"><![CDATA[Записей в блоге]]></phrase>
+</language>

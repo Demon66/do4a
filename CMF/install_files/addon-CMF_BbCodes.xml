@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="CMF_BbCodes" title="[CMF] BB Codes" version_string="1.0.0" version_id="1" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="init_dependencies" execute_order="11" callback_class="CMF_BbCodes_Listener" callback_method="initDependencies" active="1" description="Template Helper reload (Snippet)"/>
+    <listener event_id="load_class_bb_code" execute_order="100" callback_class="CMF_BbCodes_Listener" callback_method="loadClassBbCode" active="1" description="CMF BbCodes"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="CMF_BbCodes_Listener" callback_method="loadClassController" active="1" description="Attachment Controller"/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="CMF_BbCodes_Listener" callback_method="loadClassDataWriter" active="1" description="Attachment Datawriter"/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="CMF_BbCodes_Listener" callback_method="loadClassModel" active="1" description="Attachment Model"/>
+    <listener event_id="load_class_route_prefix" execute_order="10" callback_class="CMF_BbCodes_Listener" callback_method="loadClassRoutePrefix" active="1" description="Attachment RoutePrefix"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="cmf_bb_code_spoiler" version_id="1" version_string="1.0.0"><![CDATA[Spoiler]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="cmf_bb_code.css" version_id="1" version_string="1.0.0"><![CDATA[/* inline-block elements */
+.ugc a, .ugc a:active, .ugc a:hover, .ugc a:focus, .attachWrapper, .spHead div
+{
+display: -moz-inline-stack;
+display: inline-block;
+*display: inline;
+zoom: 1;
+vertical-align: bottom;
+}
+.bbCodeSpoiler
+{
+	border-radius: 0px;
+	margin: 0;
+	border-color: {xen:property secondaryLighter};
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 0;
+	border-left: 0;
+	overflow:hidden;
+	margin-left: 20px;
+}
+
+.bbCodeSpoiler .spBody
+{
+	border: 0;
+	padding: 5px 0px 10px 5px;
+/*	box-shadow: inset 14px 5px 10px -7px {xen:property primaryLightest};*/ /* {xen:property mutedTextColor}@secondaryLighter;*/
+}
+
+.spHead .messageMeta a
+{
+	font-family: {xen:property body.font-family};
+	{xen:property link}
+	background: transparent;
+	border-radius: 0;
+	box-shadow: none;
+	position: static;
+}
+.spHead .messageMeta a:hover, .spHead .messageMeta a:focus
+{
+	{xen:property linkHover}
+}
+.bbCodeSpoiler .spHead .arrowWidget
+{
+	/* circle-arrow-down */
+	{xen:property popupArrowClosed}
+}
+.bbCodeSpoiler .spHead.spShow .arrowWidget
+{
+	/* circle-arrow-up */
+	{xen:property popupArrowOpen}
+}
+.spBody.spHide, .spHead.spHide .ctrlhide, .spHead.spShow .ctrlshow
+{
+display:none;
+}
+
+.bbCodeSpoiler .spHead
+{
+	border-bottom: 1px solid {xen:property primaryLighterStill};
+	border-bottom: 1px solid {xen:property primaryLighter};
+/*	font-family: 'Trebuchet MS',Helvetica,Arial,sans-serif;
+	text-shadow: {xen:property mutedTextColor} 0 0 1em;*/
+	font-size: 14pt;
+	padding-left: 5px;
+	margin:0;
+	color: {xen:property contentText};
+/*	box-shadow: inset 0 -20px 20px -20px {xen:property primaryLighter};*/ /* {xen:property mutedTextColor}@secondaryLighter;*/
+
+/*	background: {xen:property secondaryLighter} url('{xen:property imagePath}/xenforo/gradients/category-23px-light.png') repeat-x top;*/
+overflow:hidden;
+}
+.bbCodeSpoiler .spHead .spTitle
+{
+position:relative;
+padding-right: 50px;
+cursor: pointer;
+}
+.bbCodeSpoiler .spHead b.Sh
+{
+border: none;
+position:absolute;
+z-index:10;
+display: block;
+background-color: {xen:helper rgba, {xen:property contentText}, 0.20};
+border-radius: 0px 20px 0px 0px;
+box-shadow: 0 0 15px {xen:property mutedTextColor};
+left: -30px;
+bottom:-39px;
+height:40px;
+width:100%;
+}
+
+
+/* Hх */
+.ugc h2.hx a, .ugc h3.hx a, .ugc h4.hx a, .ugc h5.hx a
+{
+	color: {xen:property contentText};
+}
+.ugc .hx a:hover, .ugc .hx a:focus, .ugc .hx a:active
+{
+	color: {xen:property contentText};
+	background: transparent;
+	border-radius: 0;
+	box-shadow: none;
+	position: static;
+}
+
+.ugc h2.hx, .ugc h3.hx, .ugc h4.hx, .bbCodeMarkdown h2, .bbCodeMarkdown h3, .bbCodeMarkdown h4, .bbCodeMarkdown h5, .bbCodeMarkdown h6 
+{
+	margin-bottom: 5px;
+	font-weight: bold;
+	text-decoration:underline;
+}
+.ugc h2.hx, .bbCodeMarkdown h2
+{
+	margin-top: 1em;
+	font-size: 1.35em;
+}
+.ugc h3.hx, .bbCodeMarkdown h3
+{
+	margin-top: 0.7em;
+	font-size: 1.15em;
+}
+.ugc h4.hx, .bbCodeMarkdown h4
+{
+	margin-top: 0.5em;
+	font-size: 1.0em;
+}
+h2:first-child, h3:first-child, h4:first-child, h2.hx:first-child, h3.hx:first-child, h4.hx:first-child
+{
+	margin-top: 0;
+}
+.ugc hr
+{
+color: {xen:property primaryLighterStill};
+border: none;
+border-bottom: 1px solid {xen:property primaryLighter};
+}
+.attachWrapper
+{
+position:relative;
+overflow:hidden;
+min-width: 50px;
+min-height: 50px;
+}
+
+span.attachWrapper
+{
+text-align: center;
+margin: 4px 2px 4px 2px;
+}
+
+a h2, a h3, a h4, a h9, 
+{
+cursor:pointer;
+}
+
+.attachWrapper img.bbCodeImage
+{
+display:block;
+*display: inline;
+margin: 0 auto;
+}
+
+.attachWrapper div
+{
+background: transparent;
+display:block;
+margin: 0 auto;
+text-align: center;
+}
+
+.attachWrapper > span
+{
+background: transparent;
+display:block;
+margin: 0 auto;
+text-align: center;
+}
+
+.attachWrapper > span a
+{
+display:block;
+*display: inline;
+text-align: center;
+cursor:pointer;
+}
+
+.attachWrapper h9
+{
+position:relative;
+z-index:10;
+*cursor:pointer;
+display: block;
+text-align: center;
+padding: 1px 5px 3px 5px;
+margin-bottom:1px;
+}
+
+.attachWrapper b.Sh
+{
+background-color: {xen:helper rgba, {xen:property mutedTextColor}, 0.99};
+border: none;
+position:absolute;
+z-index:10;
+display: block;
+}
+
+.attachWrapper .Sh
+{
+box-shadow: 0 0 15px {xen:property mutedTextColor};
+}
+
+.attachWrapper .ShIn
+{
+box-shadow: inset 0 0 15px {xen:property mutedTextColor};
+}
+
+.attachWrapper b.topSh
+{
+left: 0;
+top:-39px;
+height:40px;
+width:100%;
+}
+.attachWrapper b.bottomSh
+{
+left: 0;
+bottom:-39px;
+height:40px;
+width:100%;
+}
+.attachWrapper b.leftSh
+{
+left:-39px;
+height:100%;
+top:0;
+width:40px;
+}
+.attachWrapper b.rightSh
+{
+right:-39px;
+height:100%;
+top:0;
+width:40px;
+}
+
+]]></template>
+    <template title="cmf_bb_code_tag_hx" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="cmf_bb_code.css" /><h{$no} class="hx">{xen:if '{$nameHtml}', '<a name="h_{xen:raw $nameHtml}">{xen:raw $content}</a>', '{xen:raw $content}'}</h{$no}>]]></template>
+    <template title="cmf_bb_code_tag_spoiler" version_id="1" version_string="1.0.0"><![CDATA[<xen:require css="bb_code.css" />
+<xen:require css="cmf_bb_code.css" />
+<xen:require js="js/cmf/bb_code.js" />
+
+<div class="bbCodeBlock bbCodeSpoiler">
+	<aside>
+			<div class="spHead Popup spHide">
+				<div class="spTitle spTrigger">
+						<span class="arrowWidget"></span> {xen:if '{$nameHtml}', '{xen:raw $nameHtml}', '{xen:phrase cmf_bb_code_spoiler}'}<b class="Sh"></b>
+				</div>
+				<div class="messageMeta publicControls">
+					<a href="#" class="item control spTrigger ctrlshow" title="Show Spoiler"><span></span>{xen:phrase show}</a>
+					<a href="#" class="item control spTrigger ctrlhide" title="Hide Spoiler"><span></span>{xen:phrase hide}</a>
+				</div>
+			</div>
+		<div class="spBody spHide">{xen:raw $content}</div>
+	</aside>
+</div>]]></template>
+  </templates>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="extend attach bbcode" template_title="bb_code_tag_attach" execute_order="10" modification_type="preg_replace" callback_class="" callback_method="" description="Extend [ATTACH] BB Code." version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[/^((.|\n)*)$/]]></search_value>
+      <replace_value><![CDATA[<xen:require css="cmf_bb_code.css" /><xen:if is="{$attachment.imageBanner}"><span class="attachWrapper"><span>$1</span><xen:if is="{$attachment.imageTitle}"><h9 class="Sh">{xen:raw $attachment.imageTitle}</h9></xen:if><b class="Sh topSh"></b><b class="Sh bottomSh"></b><b class="Sh leftSh"></b><b class="Sh rightSh"></b></span><xen:else />$1</xen:if>]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="CMF_ThreadTags" title="[CMF] Thread Tags" version_string="1.0.0" version_id="1" url="" install_callback_class="CMF_ThreadTags_Install" install_callback_method="install" uninstall_callback_class="CMF_ThreadTags_Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="CMF_ThreadTags_Listener" callback_method="initDependencies" active="1" description="CMF ThreadTags Init"/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="CMF_ThreadTags_Listener" callback_method="loadClassDataWriter" active="1" description="CMF ThreadTags"/>
+    <listener event_id="load_class_search_data" execute_order="10" callback_class="CMF_ThreadTags_Listener" callback_method="loadClassSearchData" active="1" description="CMF ThreadTags"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="thread_tags" version_id="1" version_string="1.0.0"><![CDATA[Thread Tags]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="cmf_tag_set_thread" version_id="1" version_string="1.0.0"><![CDATA[<xen:if is="{$thread.tags}">
+<xen:if is="{$post.isFirst}">
+<xen:require css="cmf_tag_set_thread.css" />
+		<div class="message tagSet">
+			<div>
+				{xen:phrase cmf_tags}: {xen:helper 'tagshtml', '{$thread.tags}'}
+			</div>
+		</div>
+</xen:if>
+<xen:if is="{$xenOptions.cmfTagsAsMetaKeywords}">
+<xen:container var="$head.meta_keywords"><meta name="keywords" content="{$thread.tags}" /></xen:container>
+</xen:if>
+</xen:if>]]></template>
+    <template title="cmf_tag_set_thread.css" version_id="1" version_string="1.0.0"><![CDATA[.message .messageInfo > div.tagSet
+{
+	padding-bottom: 0px;
+	margin-top: 10px;
+}
+]]></template>
+  </templates>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="add tag string to first post" template_title="post" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[	<xen:set var="$messageAfterTemplate">]]></search_value>
+      <replace_value><![CDATA[	<xen:set var="$messageAfterTemplate"><xen:include template="cmf_tag_set_thread" />]]></replace_value>
+    </modification>
+    <modification title="add tag string to search results" template_title="search_result_thread" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[{$forum.title}</a>
+]]></search_value>
+      <replace_value><![CDATA[{$forum.title}</a><xen:if is="{$thread.tags}">.
+			{xen:phrase cmf_tags}: {xen:helper 'tagshtml', '{$thread.tags}', {xen:array 'term={$search.search_query}', 'emClass=highlight'}}
+			</xen:if>
+]]></replace_value>
+    </modification>
+    <modification title="add thread tags to thread_create" template_title="thread_create" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[		<dl class="ctrlUnit fullWidth">
+			<dt></dt>
+			<dd>{xen:raw $editorTemplate}</dd>
+		</dl>
+]]></search_value>
+      <replace_value><![CDATA[		<dl class="ctrlUnit fullWidth">
+			<dt></dt>
+			<dd>{xen:raw $editorTemplate}</dd>
+		</dl>
+		<dl class="ctrlUnit fullWidth">
+			<dt><label for="ctrl_title">{xen:phrase cmf_tags}:</label></dt>
+			<dd>
+				<input name="tags" value="{$thread.tags}" class="textCtrl AutoComplete" id="ctrl_tags" maxlength="250" type="text"
+					placeholder="{xen:phrase cmf_tags_explain}..." data-acurl="{xen:link search/search-tags}" />
+				<xen:comment><p class="explain"></p></xen:comment>
+			</dd>
+		</dl>
+]]></replace_value>
+    </modification>
+    <modification title="add thread tags to thread_edit" template_title="thread_edit" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[	<dl class="ctrlUnit">
+		<dt><label for="ctrl_title_thread_edit">{xen:phrase title}:</label></dt>
+		<dd><input type="text" name="title" value="{$thread.title}" class="textCtrl" id="ctrl_title_thread_edit" data-liveTitleTemplate="{xen:phrase edit_thread}: <em>%s</em>" maxlength="100" /></dd>
+	</dl>
+]]></search_value>
+      <replace_value><![CDATA[	<dl class="ctrlUnit">
+		<dt><label for="ctrl_title_thread_edit">{xen:phrase title}:</label></dt>
+		<dd><input type="text" name="title" value="{$thread.title}" class="textCtrl" id="ctrl_title_thread_edit" data-liveTitleTemplate="{xen:phrase edit_thread}: <em>%s</em>" maxlength="100" /></dd>
+	</dl>
+	<dl class="ctrlUnit">
+		<dt><label for="ctrl_title">{xen:phrase cmf_tags}:</label></dt>
+		<dd>
+			<input name="tags" value="{$thread.tags}" class="textCtrl AutoComplete" id="ctrl_tags" maxlength="250" type="text"
+				placeholder="{xen:phrase cmf_tags}..."  data-acurl="{xen:link search/search-tags}" />
+			<p class="explain">{xen:phrase cmf_tags_explain}</p>
+		</dd>
+	</dl>
+]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>

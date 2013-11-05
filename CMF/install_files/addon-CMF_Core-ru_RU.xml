@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Russian (RU)" date_format="j M Y" time_format="H:i" decimal_point="," thousands_separator="." language_code="ru-RU" text_direction="LTR" addon_id="CMF_Core">
+  <phrase title="admin_navigation_tags" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Браузер меток]]></phrase>
+  <phrase title="admin_navigation_tags_group" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Метки]]></phrase>
+  <phrase title="cmf_confirm_deletion_of_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Подтверждение удаления метки]]></phrase>
+  <phrase title="cmf_create_new_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Создать новую метку]]></phrase>
+  <phrase title="cmf_delete_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Удалить метку]]></phrase>
+  <phrase title="cmf_edit_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Редактировать метку]]></phrase>
+  <phrase title="cmf_merge_tags" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Объединить метки]]></phrase>
+  <phrase title="cmf_please_confirm_that_you_want_to_delete_following_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Пожалуйста, подтвердите удаление метки]]></phrase>
+  <phrase title="cmf_please_confirm_that_you_want_to_merge_following_tags" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Пожалуйста, подтвердите объединение меток]]></phrase>
+  <phrase title="cmf_please_enter_valid_tag_name" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Пожалуйста, введите корректное название метки.]]></phrase>
+  <phrase title="cmf_requested_tag_not_found" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Запрашиваемая метка не найдена.]]></phrase>
+  <phrase title="cmf_save_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Сохранить метку]]></phrase>
+  <phrase title="cmf_search_tags" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Поиск меток]]></phrase>
+  <phrase title="cmf_tag" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Метка]]></phrase>
+  <phrase title="cmf_tags" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Метки]]></phrase>
+  <phrase title="cmf_tags_disabled" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Метки отключены]]></phrase>
+  <phrase title="cmf_tags_explain" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Метки через запятую]]></phrase>
+  <phrase title="cmf_tag_cloud" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Облако меток]]></phrase>
+  <phrase title="cmf_tag_names_must_be_unique" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Названия меток должны быть уникальными. Указанное название уже используется.]]></phrase>
+  <phrase title="cmf_tag_with_this_name_already_exists" addon_id="CMF_Core" version_id="1" version_string="1.0.0"><![CDATA[Метка с таким названием уже существует]]></phrase>
+</language>

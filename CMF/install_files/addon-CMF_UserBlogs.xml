@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="CMF_UserBlogs" title="[CMF] User Blogs" version_string="1.0.0" version_id="1" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="CMF_UserBlogs_Listener" callback_method="loadClassController" active="1" description="CMF Personal Blogs"/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="CMF_UserBlogs_Listener" callback_method="loadClassModel" active="1" description="Forum Model"/>
+    <listener event_id="load_class_route_prefix" execute_order="10" callback_class="CMF_UserBlogs_Listener" callback_method="loadClassRoutePrefix" active="1" description="User Blogs RoutePrefix"/>
+    <listener event_id="load_class_view" execute_order="10" callback_class="CMF_UserBlogs_Listener" callback_method="loadClassView" active="1" description="CMF Personal Blogs"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups>
+    <option option_id="cmfUserBlogsAvatars" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="430"/>
+    </option>
+    <option option_id="cmfUserBlogsCounters" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="420"/>
+    </option>
+    <option option_id="cmfUserBlogsNode" edit_format="callback" data_type="unsigned_numeric" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params>XenForo_Option_ForumChooser::renderOption</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="400"/>
+    </option>
+    <option option_id="cmfUserBlogsPerPage" edit_format="spinbox" data_type="positive_integer" can_backup="1">
+      <default_value>20</default_value>
+      <edit_format_params>min=5
+max=100
+step=5</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="410"/>
+    </option>
+    <option option_id="cmfUserBlogsRoutePrefix" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="440"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="cmf_userblog_comments" version_id="1" version_string="1.0.0"><![CDATA[Comments]]></phrase>
+    <phrase title="cmf_userblog_entries" version_id="1" version_string="1.0.0"><![CDATA[Blog Entries]]></phrase>
+    <phrase title="option_cmfUserBlogsAvatars" version_id="1" version_string="1.0.0"><![CDATA[Use Avatars]]></phrase>
+    <phrase title="option_cmfUserBlogsAvatars_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_cmfUserBlogsCounters" version_id="1" version_string="1.0.0"><![CDATA[Use Personal Blog Counters]]></phrase>
+    <phrase title="option_cmfUserBlogsCounters_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_cmfUserBlogsNode" version_id="1" version_string="1.0.0"><![CDATA[Personal Blogs Node]]></phrase>
+    <phrase title="option_cmfUserBlogsNode_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_cmfUserBlogsPerPage" version_id="1" version_string="1.0.0"><![CDATA[Personal Blogs Per Page]]></phrase>
+    <phrase title="option_cmfUserBlogsPerPage_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_cmfUserBlogsRoutePrefix" version_id="1" version_string="1.0.0"><![CDATA[Use Personal Route Prefix]]></phrase>
+    <phrase title="option_cmfUserBlogsRoutePrefix_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="showing_user_blogs_x_to_y_of_z" version_id="1" version_string="1.0.0"><![CDATA[Showing personal blogs {start} to {end} of {total}]]></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="public">
+      <prefix original_prefix="user-blogs" class="CMF_UserBlogs_Route_Prefix_UserBlogs" build_link="none"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties/>
+  <templates>
+    <template title="cmf_user_blog_view" version_id="1" version_string="1.0.0"><![CDATA[<xen:title>{$forum.title}{xen:helper pagenumber, $page}</xen:title>
+<xen:h1>{$forum.title}</xen:h1>
+
+<xen:if is="{$forum.description} AND {xen:property threadListDescriptions}">
+	<xen:description class="baseHtml">{xen:raw $forum.description}</xen:description>
+</xen:if>
+
+<xen:navigation>
+	<xen:breadcrumb source="$nodeBreadCrumbs" />
+</xen:navigation>
+
+<xen:container var="$head.canonical">
+	<link rel="canonical" href="{xen:link 'canonical:forums', $forum, 'page={$page}'}" /></xen:container>
+
+<xen:container var="$head.rss">
+	<link rel="alternate" type="application/rss+xml" title="{xen:phrase rss_feed_for_x, 'title={$forum.title}'}" href="{xen:link forums/index.rss, $forum}" /></xen:container>
+
+<xen:container var="$quickNavSelected">node-{$forum.node_id}</xen:container>
+<xen:container var="$bodyClasses">{xen:helper nodeClasses, $nodeBreadCrumbs, $forum}</xen:container>
+<xen:container var="$searchBar.forum"><xen:include template="search_bar_forum_only" /></xen:container>
+
+<xen:if is="{$showPostedNotice}">
+	<div class="importantMessage">{xen:phrase message_submitted_displayed_pending_approval}</div>
+</xen:if>
+
+<xen:hook name="forum_view_pagenav_before" params="{xen:array 'forum={$forum}'}" />
+
+<div class="pageNavLinkGroup">
+
+	<div class="linkGroup SelectionCountContainer">
+		<xen:comment><xen:include template="forum_view_legacy_controls" /></xen:comment>
+	</div>
+
+	<xen:pagenav link="forums" linkdata="{$forum}" linkparams="{$pageNavParams}" page="{$page}" perpage="{$blogsPerPage}" total="{$totalBlogs}" />
+</div>
+
+<xen:include template="ad_forum_view_above_thread_list" />
+
+<xen:if is="{$canPostThread}">
+	<xen:topctrl><a href="{xen:link 'forums/create-thread', $forum}" class="callToAction"><span>{xen:phrase post_new_thread}</span></a></xen:topctrl>
+</xen:if>
+
+<xen:hook name="forum_view_threads_before" params="{xen:array 'forum={$forum}'}" />
+
+<xen:if is="{$renderedNodes}">
+	<xen:include template="ad_forum_view_above_node_list" />
+	<xen:include template="node_list" />
+</xen:if>
+
+<div class="pageNavLinkGroup">
+	<div class="linkGroup">
+		<xen:if is="{$canPostThread}">
+			<a href="{xen:link 'forums/create-thread', $forum}" class="callToAction"><span>{xen:phrase post_new_thread}</span></a>
+		<xen:elseif is="{$visitor.user_id}" />
+			({xen:phrase no_permission_to_post})
+		<xen:else />
+			<label for="LoginControl"><a href="{xen:link login}" class="concealed">({xen:phrase log_in_or_sign_up_to_post})</a></label>
+		</xen:if>
+	</div>
+	<div class="linkGroup"{xen:if '!{$ignoredNames}', ' style="display: none"'}><a href="javascript:" class="muted jsOnly DisplayIgnoredContent Tooltip" title="{xen:phrase show_hidden_content_by_x, "names={xen:helper implode, $ignoredNames, ', '}"}">{xen:phrase show_ignored_content}</a></div>
+	
+	<xen:pagenav link="forums" linkdata="{$forum}" linkparams="{$pageNavParams}" page="{$page}" perpage="{$blogsPerPage}" total="{$totalBlogs}" />
+</div>]]></template>
+  </templates>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="add avatar for forum_view" template_title="forum_view" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[<xen:title>{$forum.title}{xen:helper pagenumber, $page}</xen:title>
+<xen:h1>{$forum.title}</xen:h1>
+
+<xen:if is="{$forum.description} AND {xen:property threadListDescriptions}">
+]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$forum.blog_user_id}">
+	<xen:if is="{$xenOptions.cmfUserBlogsAvatars}"><xen:container var="$beforeH1"><xen:avatar user="$forum.user" size="s" text="{$forum.user.username}" class="Tooltip" title="{$forum.user.username}" /></xen:container></xen:if>
+
+	<xen:if is="{$forum.aboutHtml} AND {xen:property threadListDescriptions}">
+		<xen:description class="baseHtml secondaryContent {xen:if $xenOptions.cmfUserBlogsAvatars, avatarPadding}">{xen:raw $forum.aboutHtml}</xen:description>
+	</xen:if>
+</xen:if>
+<xen:title>{xen:if $forum.blog_username, '{$forum.blog_username} | '}{$forum.title}{xen:helper pagenumber, $page}</xen:title>
+<xen:h1>{xen:if $forum.blog_username, $forum.blog_username, $forum.title}</xen:h1>
+
+<xen:if is="{$forum.description} AND {xen:property threadListDescriptions}">
+]]></replace_value>
+    </modification>
+    <modification title="add avatar for node_list" template_title="node_forum_level_2" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[<span class="nodeIcon" title="{xen:if $forum.hasNew, '{xen:phrase unread_messages}', ''}"></span>]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$xenOptions.cmfUserBlogsAvatars} && {$forum.user_id}"><xen:avatar user="$forum" size="s" img="true" /><xen:else /><span class="nodeIcon" title="{xen:if $forum.hasNew, '{xen:phrase unread_messages}', ''}"></span></xen:if>]]></replace_value>
+    </modification>
+    <modification title="add css for avatar for discussion_list" template_title="discussion_list.css" execute_order="10" modification_type="preg_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[/$/]]></search_value>
+      <replace_value><![CDATA[
+.titleBar .avatar {
+	float: left;
+	margin-right: 10px;
+}
+.titleBar .avatarPadding {
+	padding-left: 65px;
+}]]></replace_value>
+    </modification>
+    <modification title="add css for avatar for node_list" template_title="node_list.css" execute_order="10" modification_type="preg_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[/$/]]></search_value>
+      <replace_value><![CDATA[.node .nodeInfo.primaryContent a.avatar {
+	margin: 5px 10px 2px 5px;
+	display:block;
+	float:left;
+}
+]]></replace_value>
+    </modification>
+    <modification title="add totalBlogs for node_list" template_title="node_list" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[	</ol>
+	
+	<xen:if is="{$newDiscussionButton}"><div class="nodeListNewDiscussionButton">{xen:raw $newDiscussionButton}</div></xen:if>
+]]></search_value>
+      <replace_value><![CDATA[	<xen:if is="{$totalBlogs}">
+		<div class="sectionFooter InlineMod SelectionCountContainer">
+			<span class="contentSummary">{xen:phrase showing_user_blogs_x_to_y_of_z, 'start={xen:number $blogsStartOffset}', 'end={xen:number $blogsEndOffset}', 'total={xen:number $totalBlogs}'}</span>
+		</div>
+	</xen:if>
+	</ol>
+	
+	<xen:if is="{$newDiscussionButton}"><div class="nodeListNewDiscussionButton">{xen:raw $newDiscussionButton}</div></xen:if>
+]]></replace_value>
+    </modification>
+    <modification title="change node statistics for user blogs l2 p2" template_title="node_forum_level_2" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[{xen:phrase messages}:]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$forum.user_id} && {$xenOptions.cmfUserBlogsCounters}">{xen:phrase cmf_userblog_comments}:<xen:else />{xen:phrase messages}:</xen:if>]]></replace_value>
+    </modification>
+    <modification title="change node statistics for user blogs l2.p1" template_title="node_forum_level_2" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[{xen:phrase discussions}:]]></search_value>
+      <replace_value><![CDATA[<xen:if is="{$forum.user_id}">{xen:phrase cmf_userblog_entries}:<xen:else />{xen:phrase discussions}:</xen:if>]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>

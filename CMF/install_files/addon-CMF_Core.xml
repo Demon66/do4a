@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="CMF_Core" title="[CMF] Core" version_string="1.0.0" version_id="1" url="" install_callback_class="CMF_Core_Install" install_callback_method="install" uninstall_callback_class="CMF_Core_Install" uninstall_callback_method="uninstall">
+  <admin_navigation>
+    <navigation navigation_id="tags" parent_navigation_id="tags_group" display_order="1" link="tags" admin_permission_id="rebuildCache" debug_only="0" hide_no_children="0"/>
+    <navigation navigation_id="tags_group" parent_navigation_id="applications" display_order="16" link="" admin_permission_id="rebuildCache" debug_only="0" hide_no_children="1"/>
+  </admin_navigation>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates>
+    <template title="cmf_tag_delete"><![CDATA[<xen:title>{xen:phrase cmf_confirm_deletion_of_tag}: {$tag.tag}</xen:title>
+<xen:h1>{xen:phrase cmf_confirm_deletion_of_tag}</xen:h1>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:adminlink 'tags/edit', $tag}">{$tag.tag}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:require css="delete_confirmation.css" />
+
+<xen:form action="{xen:adminlink 'tags/delete'}" class="deleteConfirmForm formOverlay">
+
+	<p>{xen:phrase cmf_please_confirm_that_you_want_to_delete_following_tag}:</p>
+	<strong><a href="{xen:adminlink 'tags/edit', $tag}">{$tag.tag}</a></strong>
+
+	<input type="hidden" name="tag_id" value="{$tag.tag_id}" />
+
+	<xen:submitunit save="{xen:phrase cmf_delete_tag}" />
+	<input type="hidden" name="_xfConfirm" value="1" />
+	
+</xen:form>]]></template>
+    <template title="cmf_tag_edit"><![CDATA[<xen:title>{xen:if {$tag.tag}, '{xen:phrase cmf_edit_tag}: {$tag.tag}', '{xen:phrase cmf_create_new_tag}'}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:adminlink 'tags'}#{xen:helper listitemid, $listItemId}">{xen:phrase cmf_tags}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:form action="{xen:adminlink 'tags/save'}">
+
+	<xen:textboxunit name="tag" value="{$tag.tag}" label="{xen:phrase cmf_tag}:" hint="{xen:phrase must_be_unique}" data-liveTitleTemplate="{xen:if {$tag.tag},
+		'{xen:phrase cmf_edit_tag}: <em>%s</em>',
+		'{xen:phrase cmf_create_new_tag}: <em>%s</em>'}" />
+		
+	<input type="hidden" name="tag_id" value="{$tag.tag_id}" />
+
+	<xen:submitunit save="{xen:phrase cmf_save_tag}" saveclass="OverlayTrigger">
+		<input type="submit" name="reload" value="{xen:phrase save_and_reload}" accesskey="e" class="button OverlayTrigger" id="save_reload_button" />
+		<xen:if is="{$tag.tag_id}">
+			<input type="button" value="{xen:phrase cmf_delete_tag}..."
+				accesskey="d" class="button OverlayTrigger"
+				data-href="{xen:adminlink 'tags/delete', $tag}" />
+		</xen:if>
+	</xen:submitunit>
+</xen:form>]]></template>
+    <template title="cmf_tag_list"><![CDATA[<xen:if is="{$xenOptions.cmfTags}">
+<xen:title>{xen:phrase cmf_tags}</xen:title>
+
+<xen:topctrl>
+	<a href="{xen:adminlink 'tags/add'}" class="button" accesskey="a">+ {xen:phrase cmf_create_new_tag}</a>
+</xen:topctrl>
+
+<xen:require css="filter_list.css" />
+<xen:require js="js/xenforo/filter_list.js" />
+
+<xen:form action="{xen:adminlink tags, $tags}" class="section">
+
+	<h2 class="subHeading">
+		<xen:include template="filter_list_controls" />
+		{xen:phrase cmf_tags}
+	</h2>
+
+	<ol class="FilterList Scrollable" data-ajaxFilter="true">
+		<xen:include template="cmf_tag_list_items" />
+	</ol>
+
+	<p class="sectionFooter">{xen:phrase showing_x_of_y_items, 'count=<span class="FilterListCount">{xen:count $tags}</span>', 'total={xen:number $totalTags}'}</p>
+
+</xen:form>
+
+{xen:adminpagenav $perPage, $totalTags, $page, tags, $tags}
+<xen:else />
+<xen:title>{xen:phrase cmf_tags_disabled}</xen:title>
+</xen:if>]]></template>
+    <template title="cmf_tag_list_items"><![CDATA[<xen:foreach loop="$tags" value="$tag">				
+	<xen:listitem
+		id="{$tag.tag_id}"
+		class="item_{xen:if $tag.tag_count, default, inherited}"
+		href="{xen:adminlink 'tags/edit', $tag}"
+		delete="{xen:adminlink 'tags/delete', $tag}"
+		deletehint="{xen:phrase cmf_delete_tag}...">
+		<xen:label>{$tag.tag}</xen:label>
+		<xen:html>
+			<em class="secondaryContent">{$tag.tag_count}</em>
+		</xen:html>
+	</xen:listitem>
+<xen:comment>class="item_default"{$tag.phrase_state}</xen:comment>
+</xen:foreach>
+<xen:if is="{$filterMore}">
+	<li class="listNote">{xen:phrase more_records_matching_filter_more_specific}</li>
+</xen:if>]]></template>
+    <template title="cmf_tag_merge"><![CDATA[<xen:title>{xen:phrase cmf_tag_with_this_name_already_exists}: {$new_tag.tag}</xen:title>
+<xen:h1>{xen:phrase cmf_tag_with_this_name_already_exists}: {$new_tag.tag}</xen:h1>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:adminlink 'tags/edit', $tag}">{$tag.tag}</xen:breadcrumb>
+</xen:navigation>
+
+<xen:require css="delete_confirmation.css" />
+
+<xen:form action="{xen:adminlink 'tags/save'}" class="deleteConfirmForm formOverlay">
+
+	<p>{xen:phrase cmf_please_confirm_that_you_want_to_merge_following_tags}:</p>
+	<strong><a href="{xen:adminlink 'tags/edit', $tag}">{$tag.tag}</a></strong>
+	<strong><a href="{xen:adminlink 'tags/edit', $new_tag}">{$new_tag.tag}</a></strong>
+
+	<input type="hidden" name="tag_id" value="{$tag.tag_id}" />
+	<input type="hidden" name="reload" value="{$reload}" />
+	<input type="hidden" name="tag" value="{$new_tag.tag}" />
+
+	<xen:submitunit save="{xen:phrase cmf_merge_tags}" />
+	<input type="hidden" name="_xfConfirm" value="1" />
+	
+</xen:form>]]></template>
+  </admin_templates>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="front_controller_pre_view" execute_order="10" callback_class="CMF_Core_Listener" callback_method="frontControllerPreView" active="1" description="CMF Core"/>
+    <listener event_id="init_dependencies" execute_order="1" callback_class="CMF_Core_Listener" callback_method="initDependencies" active="1" description="Init CMF"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="CMF_Core_Listener" callback_method="loadClassController" active="1" description="CMF Core"/>
+    <listener event_id="load_class_datawriter" execute_order="1" callback_class="CMF_Core_Listener" callback_method="loadClassDataWriter" active="1" description="CMF Core"/>
+    <listener event_id="load_class_model" execute_order="1" callback_class="CMF_Core_Listener" callback_method="loadClassModel" active="1" description="CMF Core"/>
+    <listener event_id="search_source_create" execute_order="100" callback_class="CMF_Core_Listener" callback_method="searchSourceCreate" active="1" description="Bug Fix fo XenForo"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups>
+    <group group_id="cmf" display_order="1" debug_only="0"/>
+    <option option_id="cmfTags" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="5"/>
+    </option>
+    <option option_id="cmfTagsAsMetaKeywords" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="10"/>
+    </option>
+    <option option_id="cmfTagsCloudLevels" edit_format="spinbox" data_type="positive_integer" can_backup="1">
+      <default_value>5</default_value>
+      <edit_format_params>min=1
+max=10
+step=1</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="16"/>
+    </option>
+    <option option_id="cmfTagsCloudLimit" edit_format="spinbox" data_type="unsigned_integer" can_backup="1">
+      <default_value>50</default_value>
+      <edit_format_params>min=0
+max=200
+step=5</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="cmf" display_order="15"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="admin_navigation_tags" version_id="1" version_string="1.0.0"><![CDATA[Tag Browser]]></phrase>
+    <phrase title="admin_navigation_tags_group" version_id="1" version_string="1.0.0"><![CDATA[Tags]]></phrase>
+    <phrase title="cmf_confirm_deletion_of_tag" version_id="1" version_string="1.0.0"><![CDATA[Confirm Deletion of Tag]]></phrase>
+    <phrase title="cmf_create_new_tag" version_id="1" version_string="1.0.0"><![CDATA[Create New Tag]]></phrase>
+    <phrase title="cmf_delete_tag" version_id="1" version_string="1.0.0"><![CDATA[Delete Tag]]></phrase>
+    <phrase title="cmf_edit_tag" version_id="1" version_string="1.0.0"><![CDATA[Edit Tag]]></phrase>
+    <phrase title="cmf_merge_tags" version_id="1" version_string="1.0.0"><![CDATA[Merge Tags]]></phrase>
+    <phrase title="cmf_please_confirm_that_you_want_to_delete_following_tag" version_id="1" version_string="1.0.0"><![CDATA[Please confirm that you want to delete the following tag]]></phrase>
+    <phrase title="cmf_please_confirm_that_you_want_to_merge_following_tags" version_id="1" version_string="1.0.0"><![CDATA[Please confirm that you want to merge the following tags]]></phrase>
+    <phrase title="cmf_please_enter_valid_tag_name" version_id="1" version_string="1.0.0"><![CDATA[Please enter a valid tag name.]]></phrase>
+    <phrase title="cmf_requested_tag_not_found" version_id="1" version_string="1.0.0"><![CDATA[The requested tag could not be found.]]></phrase>
+    <phrase title="cmf_save_tag" version_id="1" version_string="1.0.0"><![CDATA[Save Tag]]></phrase>
+    <phrase title="cmf_search_tags" version_id="1" version_string="1.0.0"><![CDATA[Search Tags]]></phrase>
+    <phrase title="cmf_tag" version_id="1" version_string="1.0.0"><![CDATA[Tag]]></phrase>
+    <phrase title="cmf_tags" version_id="1" version_string="1.0.0"><![CDATA[Tags]]></phrase>
+    <phrase title="cmf_tags_disabled" version_id="1" version_string="1.0.0"><![CDATA[Tags Disabled]]></phrase>
+    <phrase title="cmf_tags_explain" version_id="1" version_string="1.0.0"><![CDATA[Tags separated by comma]]></phrase>
+    <phrase title="cmf_tag_cloud" version_id="1" version_string="1.0.0"><![CDATA[Tag Cloud]]></phrase>
+    <phrase title="cmf_tag_names_must_be_unique" version_id="1" version_string="1.0.0"><![CDATA[Tag names must be unique. The specified name is already in use.]]></phrase>
+    <phrase title="cmf_tag_with_this_name_already_exists" version_id="1" version_string="1.0.0"><![CDATA[Tag with this name already exists]]></phrase>
+    <phrase title="option_cmfTags" version_id="1" version_string="1.0.0"><![CDATA[Tags Enabled]]></phrase>
+    <phrase title="option_cmfTagsAsMetaKeywords" version_id="1" version_string="1.0.0"><![CDATA[Use thread tags as meta Keywords]]></phrase>
+    <phrase title="option_cmfTagsAsMetaKeywords_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_cmfTagsCloudLevels" version_id="1" version_string="1.0.0"><![CDATA[Number of levels in Tag Cloud]]></phrase>
+    <phrase title="option_cmfTagsCloudLevels_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_cmfTagsCloudLimit" version_id="1" version_string="1.0.0"><![CDATA[Maximum tags in Tag Cloud]]></phrase>
+    <phrase title="option_cmfTagsCloudLimit_explain" version_id="1" version_string="1.0.0"><![CDATA[0 - disable]]></phrase>
+    <phrase title="option_cmfTags_explain" version_id="1" version_string="1.0.0"></phrase>
+    <phrase title="option_group_cmf" version_id="1" version_string="1.0.0"><![CDATA[Content Management Framework (CMF)]]></phrase>
+    <phrase title="option_group_cmf_description" version_id="1" version_string="1.0.0"></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="admin">
+      <prefix original_prefix="tags" class="CMF_Core_Route_PrefixAdmin_Tags" build_link="data_only"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties/>
+  <templates>
+    <template title="cmf_search_form_tag" version_id="1" version_string="1.0.0"><![CDATA[<xen:title>{xen:phrase cmf_search_tags}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb href="{xen:link full:search}">{xen:phrase search}</xen:breadcrumb>
+</xen:navigation>
+
+<form action="{xen:link 'search/search'}" method="post" class="xenForm AutoValidator"
+	data-optInOut="optIn"
+	data-redirect="true">
+
+	<xen:include template="search_form_tabs" />
+	
+	<dl class="ctrlUnit">
+		<dt><label for="ctrl_keywords">{xen:phrase cmf_tags}:</label></dt>
+		<dd>
+			<ul>
+				<li><input type="search" name="keywords" value="{$search.keywords}" results="0" class="textCtrl AutoComplete" id="ctrl_keywords" autofocus="true" data-acurl="{xen:link search/search-tags}" /></li>
+				<xen:comment> TODO exact or not search<li><label for="ctrl_title_only"><input type="checkbox" name="title_only" id="ctrl_title_only" value="1" {xen:checked '{$search.title_only}'} /> {xen:phrase search_titles_only}</label></li></xen:comment>
+			</ul>
+		</dd>
+	</dl>
+	<dl class="ctrlUnit submitUnit">
+		<dt></dt>
+		<dd><input type="submit" value="{xen:phrase search}" accesskey="s" class="button primary" /></dd>
+	</dl>
+	<input type="hidden" name="type" value="tag" />
+	<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	<xen:if is="{$tags}">
+	<xen:require css="cmf_tag_cloud.css" />
+		<h3 class="sectionHeader">{xen:phrase cmf_tag_cloud}</h3>
+		<div class="tagCloud">
+			<xen:foreach loop="$tags" value="$tag">
+				{xen:helper tagshtml, '{$tag.tag}', '', {xen:array 'class=tagLevel{$tag.level}'}}
+			</xen:foreach>
+		</div>
+	</xen:if>
+</form>]]></template>
+    <template title="cmf_tag_cloud.css" version_id="1" version_string="1.0.0"><![CDATA[.tagCloud a
+{
+	padding: 5px;
+}
+.tagCloud .tagLevel2
+{
+	font-size: 1.25em;
+}
+.tagCloud .tagLevel3
+{
+	font-size: 1.5em;
+}
+.tagCloud .tagLevel4
+{
+	font-size: 1.75em;
+}
+.tagCloud .tagLevel5
+{
+	font-size: 2em;
+}
+.tagCloud .tagLevel6
+{
+	font-size: 2.25em;
+}
+.tagCloud .tagLevel7
+{
+	font-size: 2.5em;
+}
+.tagCloud .tagLevel8
+{
+	font-size: 2.75em;
+}
+.tagCloud .tagLevel9
+{
+	font-size: 3em;
+}
+.tagCloud .tagLevel10
+{
+	font-size: 3.25em;
+}
+]]></template>
+  </templates>
+  <bb_code_media_sites/>
+  <template_modifications>
+    <modification title="add tag search tab" template_title="search_form_tabs" execute_order="10" modification_type="str_replace" callback_class="" callback_method="" description="" version_id="1" version_string="1.0.0" active="1">
+      <search_value><![CDATA[	</xen:hook>]]></search_value>
+      <replace_value><![CDATA[		<xen:if is="{$xenOptions.cmfTags}"><li{xen:if "{$searchType} == 'tag'", ' class="active"'}><a href="{xen:link search, '', 'type=tag'}">{xen:phrase cmf_search_tags}</a></li></xen:if>
+	</xen:hook>]]></replace_value>
+    </modification>
+  </template_modifications>
+</addon>

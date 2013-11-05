@@ -1,0 +1,10 @@
+<?php
+/* for IDE autocomplete */
+class XFCP_CMF_BbCodes_BbCode_Formatter_Base extends XenForo_BbCode_Formatter_Base {}
+class XFCP_CMF_BbCodes_BbCode_Formatter_Text extends XenForo_BbCode_Formatter_Text {}
+class XFCP_CMF_BbCodes_BbCode_Formatter_Wysiwyg extends XenForo_BbCode_Formatter_Wysiwyg {}
+
+class XFCP_CMF_BbCodes_ControllerPublic_Attachment extends XenForo_ControllerPublic_Attachment {}
+class XFCP_CMF_BbCodes_Model_Attachment extends XenForo_Model_Attachment {}
+class XFCP_CMF_BbCodes_DataWriter_AttachmentData extends XenForo_DataWriter_AttachmentData {}
+class XFCP_CMF_BbCodes_Route_Prefix_Attachments extends XenForo_Route_Prefix_Attachments {}
