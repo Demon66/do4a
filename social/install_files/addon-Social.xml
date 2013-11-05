@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="Social" title="Social" version_string="" version_id="1" url="" install_callback_class="Social_Manufacture" install_callback_method="build" uninstall_callback_class="Social_Manufacture" uninstall_callback_method="destroy">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates>
+    <template title="import_livestreet_config"><![CDATA[<xen:title>{xen:phrase configure_importer}: {$name}</xen:title>
+
+<xen:form action="{xen:adminlink import/config}">
+	<xen:if is="{$config}">
+		<xen:controlunit label="{xen:phrase mysql_server}:">{$config.db.host}</xen:controlunit>
+		<xen:controlunit label="{xen:phrase mysql_port}:">{$config.db.port}</xen:controlunit>
+		<xen:controlunit label="{xen:phrase mysql_user_name}:">{$config.db.username}</xen:controlunit>
+		<xen:controlunit label="{xen:phrase mysql_password}:">{$config.db.password}</xen:controlunit>
+		<xen:controlunit label="{xen:phrase mysql_database_name}:">{$config.db.dbname}</xen:controlunit>
+		<xen:controlunit label="{xen:phrase table_prefix}:">{$config.db.prefix}</xen:controlunit>
+		
+		<input type="hidden" name="config[db][host]" value="{$config.db.host}" />
+		<input type="hidden" name="config[db][port]" value="{$config.db.port}" />
+		<input type="hidden" name="config[db][username]" value="{$config.db.username}" />
+		<input type="hidden" name="config[db][password]" value="{$config.db.password}" />
+		<input type="hidden" name="config[db][dbname]" value="{$config.db.dbname}" />
+		<input type="hidden" name="config[db][prefix]" value="{$config.db.prefix}" />
+		<input type="hidden" name="config[retain_keys]" value="{$config.retain_keys}" />
+	<xen:else />
+		<xen:textboxunit label="{xen:phrase mysql_server}:" name="config[db][host]"
+			value="{$input.MasterServer.servername}"/>
+		<xen:textboxunit label="{xen:phrase mysql_port}:" name="config[db][port]"
+			value="{$input.MasterServer.port}" />
+		<xen:textboxunit label="{xen:phrase mysql_user_name}:" name="config[db][username]"
+			value="{$input.MasterServer.username}" />
+		<xen:textboxunit label="{xen:phrase mysql_password}:" name="config[db][password]"
+			value="{$input.MasterServer.password}" />
+		<xen:textboxunit label="{xen:phrase mysql_database_name}:" name="config[db][dbname]"
+			value="{$input.Database.dbname}" />
+		<xen:textboxunit label="{xen:phrase table_prefix}:" name="config[db][prefix]"
+			value="{$input.Database.tableprefix}" />
+                <input type="hidden" name="config[retain_keys]" value="{$retainKeys}" />
+	</xen:if>
+	
+	<xen:submitunit save="{xen:phrase validate_configuration}" />
+		
+	<input type="hidden" name="importer" value="{$importer}" />
+</xen:form>]]></template>
+    <template title="social_admin_forum_edit_pane"><![CDATA[<li>			
+	<xen:checkboxunit label="{xen:phrase options}:">
+		<xen:option name="news_source" label="{xen:phrase social_publish_threads_as_news}" selected="{$forum.news_source}">
+			<xen:hint>{xen:phrase social_if_enabled_new_threads_will_appear_in_news_section}</xen:hint>
+		</xen:option>
+	</xen:checkboxunit>
+</li>]]></template>
+    <template title="social_admin_forum_edit_tab"><![CDATA[<li><a>{xen:phrase social_forum_options}</a></li>]]></template>
+  </admin_templates>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="Social_EventListener_Static" callback_method="controllerPreDispatch" active="1" description=""/>
+    <listener event_id="front_controller_pre_view" execute_order="10" callback_class="Social_EventListener_Static" callback_method="frontControllerPreView" active="1" description=""/>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="Social_EventListener_Static" callback_method="initDependencies" active="1" description=""/>
+    <listener event_id="load_class_bb_code" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassBbCode" active="1" description=""/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassController" active="1" description=""/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassDataWriter" active="1" description=""/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassModel" active="1" description=""/>
+    <listener event_id="load_class_route_prefix" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassRoutePrefix" active="1" description=""/>
+    <listener event_id="load_class_search_data" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassSearchData" active="1" description=""/>
+    <listener event_id="load_class_view" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassView" active="1" description=""/>
+    <listener event_id="navigation_tabs" execute_order="10" callback_class="Social_EventListener_Template" callback_method="navigationTabs" active="1" description=""/>
+    <listener event_id="template_create" execute_order="10" callback_class="Social_EventListener_Template" callback_method="templateCreate" active="1" description=""/>
+    <listener event_id="template_hook" execute_order="10" callback_class="Social_EventListener_Template" callback_method="templateHook" active="1" description=""/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <optiongroups>
+    <group group_id="SocialBlogs" display_order="2" debug_only="0"/>
+    <group group_id="SocialNews" display_order="1" debug_only="0"/>
+    <group group_id="socialOptions" display_order="1000" debug_only="0"/>
+    <option option_id="socialAutoCenterMedia" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialBlogs" display_order="19"/>
+      <relation group_id="SocialNews" display_order="19"/>
+    </option>
+    <option option_id="socialBestNewsMinLikes" edit_format="spinbox" data_type="positive_integer" can_backup="1">
+      <default_value>3</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="10"/>
+    </option>
+    <option option_id="socialBlogActive" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialBlogs" display_order="0"/>
+    </option>
+    <option option_id="socialBlogRoot" edit_format="callback" data_type="unsigned_integer" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params>XenForo_Option_NodeChooser::renderSelect</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialBlogs" display_order="1"/>
+    </option>
+    <option option_id="socialCommentsPerPage" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>10</default_value>
+      <edit_format_params>min=5
+step=1
+max=25</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="socialOptions" display_order="300"/>
+    </option>
+    <option option_id="socialCutAuto" edit_format="spinbox" data_type="positive_integer" can_backup="1">
+      <default_value>1000</default_value>
+      <edit_format_params>min=100
+step=100</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="20"/>
+    </option>
+    <option option_id="socialFollowingThreadLimit" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>5</default_value>
+      <edit_format_params>min=3
+step=1
+max=15</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="socialOptions" display_order="210"/>
+    </option>
+    <option option_id="socialGeneralDisplayLocations" edit_format="template" data_type="array" can_backup="1">
+      <default_value>a:3:{s:13:"forum_sidebar";i:1;s:11:"member_card";i:1;s:11:"profile_tab";i:1;}</default_value>
+      <edit_format_params>social_option_template_generalDisplays</edit_format_params>
+      <sub_options>forum_sidebar
+member_card
+profile_tab</sub_options>
+      <relation group_id="socialOptions" display_order="100"/>
+    </option>
+    <option option_id="socialMaxMediaInNews" edit_format="spinbox" data_type="unsigned_integer" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="51"/>
+    </option>
+    <option option_id="socialMaxPromotionAge" edit_format="spinbox" data_type="positive_integer" can_backup="1">
+      <default_value>72</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="12"/>
+    </option>
+    <option option_id="socialMoreFromUserLimit" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>10</default_value>
+      <edit_format_params>min=5
+step=1
+max=30</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="socialOptions" display_order="305"/>
+    </option>
+    <option option_id="socialNewsActive" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="0"/>
+    </option>
+    <option option_id="socialNewsDescription" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="3"/>
+    </option>
+    <option option_id="socialNewsIndex" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="1"/>
+    </option>
+    <option option_id="socialNewsPerPage" edit_format="spinbox" data_type="positive_integer" can_backup="1">
+      <default_value>10</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="5"/>
+    </option>
+    <option option_id="socialNewsTitle" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialNews" display_order="2"/>
+    </option>
+    <option option_id="socialPersonalBlogRoot" edit_format="callback" data_type="unsigned_integer" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params>XenForo_Option_NodeChooser::renderSelect</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="SocialBlogs" display_order="2"/>
+    </option>
+    <option option_id="socialPreviewLength" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>200</default_value>
+      <edit_format_params>min=100
+step=10
+max=300</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="socialOptions" display_order="205"/>
+    </option>
+    <option option_id="socialRecentCommentLimit" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>8</default_value>
+      <edit_format_params>min=3
+step=1
+max=12</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="socialOptions" display_order="215"/>
+    </option>
+    <option option_id="socialThreadsPerPage" edit_format="spinbox" data_type="integer" can_backup="1">
+      <default_value>15</default_value>
+      <edit_format_params>min=6
+step=2
+max=30</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="socialOptions" display_order="200"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="news_feed_blog_post_insert" version_id="1" version_string=""><![CDATA[{username} replied to the blog entry {threadTitle}.]]></phrase>
+    <phrase title="news_feed_blog_post_insert_attachment" version_id="1" version_string=""><![CDATA[{username} attached a file to the blog entry {threadTitle}.]]></phrase>
+    <phrase title="news_feed_blog_thread_insert" version_id="1" version_string=""><![CDATA[{username} posted a new blog entry.]]></phrase>
+    <phrase title="option_group_SocialBlogs" version_id="1" version_string=""><![CDATA[[Social] Blogs Options]]></phrase>
+    <phrase title="option_group_SocialBlogs_description" version_id="1" version_string=""></phrase>
+    <phrase title="option_group_SocialNews" version_id="1" version_string=""><![CDATA[[Social] News Options]]></phrase>
+    <phrase title="option_group_SocialNews_description" version_id="1" version_string=""></phrase>
+    <phrase title="option_group_socialOptions" version_id="1" version_string=""><![CDATA[Blog Options]]></phrase>
+    <phrase title="option_group_socialOptions_description" version_id="1" version_string=""><![CDATA[Options here control the display of elements within the blog.]]></phrase>
+    <phrase title="option_socialAutoCenterMedia" version_id="1" version_string=""><![CDATA[Autocentering images and media]]></phrase>
+    <phrase title="option_socialAutoCenterMedia_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialBestNewsMinLikes" version_id="1" version_string=""><![CDATA[Minimum likes for best news]]></phrase>
+    <phrase title="option_socialBestNewsMinLikes_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialBlogActive" version_id="1" version_string=""><![CDATA[Blogs module is active]]></phrase>
+    <phrase title="option_socialBlogActive_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialBlogRoot" version_id="1" version_string=""><![CDATA[Blogs Container]]></phrase>
+    <phrase title="option_socialBlogRoot_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialCommentsPerPage" version_id="1" version_string=""><![CDATA[Comments Per Page]]></phrase>
+    <phrase title="option_socialCommentsPerPage_explain" version_id="1" version_string=""><![CDATA[Amount of comments displayed at a time when viewing a blog thread.]]></phrase>
+    <phrase title="option_socialCutAuto" version_id="1" version_string=""><![CDATA[Simbols for auto cut news]]></phrase>
+    <phrase title="option_socialCutAuto_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialFollowingThreadLimit" version_id="1" version_string=""><![CDATA[Recent Following Thread Limit]]></phrase>
+    <phrase title="option_socialFollowingThreadLimit_explain" version_id="1" version_string=""><![CDATA[Controls the number of threads that are displayed if a user is following users who have posted blog threads.]]></phrase>
+    <phrase title="option_socialGeneralDisplayLocations" version_id="1" version_string=""><![CDATA[General Display Locations]]></phrase>
+    <phrase title="option_socialGeneralDisplayLocations_explain" version_id="1" version_string=""><![CDATA[Select available locations you want information to appear that is outside of the blogging area.]]></phrase>
+    <phrase title="option_socialMaxMediaInNews" version_id="1" version_string=""><![CDATA[Max media in one news item]]></phrase>
+    <phrase title="option_socialMaxMediaInNews_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialMaxPromotionAge" version_id="1" version_string=""><![CDATA[Time for promotion (Hours)]]></phrase>
+    <phrase title="option_socialMaxPromotionAge_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialMoreFromUserLimit" version_id="1" version_string=""><![CDATA[More Threads From User Limit]]></phrase>
+    <phrase title="option_socialMoreFromUserLimit_explain" version_id="1" version_string=""><![CDATA[Limits how many threads are listed in the sidebar when viewing a blog thread.]]></phrase>
+    <phrase title="option_socialNewsActive" version_id="1" version_string=""><![CDATA[News module is active]]></phrase>
+    <phrase title="option_socialNewsActive_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsDescription" version_id="1" version_string=""><![CDATA[News Description]]></phrase>
+    <phrase title="option_socialNewsDescription_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsIndex" version_id="1" version_string=""><![CDATA[Set news as homepage]]></phrase>
+    <phrase title="option_socialNewsIndex_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsPerPage" version_id="1" version_string=""><![CDATA[News per page]]></phrase>
+    <phrase title="option_socialNewsPerPage_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsTitle" version_id="1" version_string=""><![CDATA[News Title]]></phrase>
+    <phrase title="option_socialNewsTitle_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialPersonalBlogRoot" version_id="1" version_string=""><![CDATA[Personal Blogs Container]]></phrase>
+    <phrase title="option_socialPersonalBlogRoot_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialPreviewLength" version_id="1" version_string=""><![CDATA[Thread Preview Length]]></phrase>
+    <phrase title="option_socialPreviewLength_explain" version_id="1" version_string=""><![CDATA[The length of text displayed as a preview when you hover over blog titles or when you view a user's blog page.]]></phrase>
+    <phrase title="option_socialRecentCommentLimit" version_id="1" version_string=""><![CDATA[Recent Comment Limit]]></phrase>
+    <phrase title="option_socialRecentCommentLimit_explain" version_id="1" version_string=""><![CDATA[Controls how many recent comment links are displayed.]]></phrase>
+    <phrase title="option_socialThreadsPerPage" version_id="1" version_string=""><![CDATA[Threads Per Page]]></phrase>
+    <phrase title="option_socialThreadsPerPage_explain" version_id="1" version_string=""><![CDATA[Limit the number of threads displayed per page on the blog home and on a user's blog.]]></phrase>
+    <phrase title="replaced_phrase_all_forums" version_id="1" version_string=""><![CDATA[All Sections]]></phrase>
+    <phrase title="replaced_phrase_display_results_as_threads" version_id="1" version_string=""><![CDATA[Display results as discussions]]></phrase>
+    <phrase title="replaced_phrase_find_all_threads_by_x" version_id="1" version_string=""><![CDATA[Find all discussions started by {name}]]></phrase>
+    <phrase title="replaced_phrase_search_in_forums" version_id="1" version_string=""><![CDATA[Search in Sections]]></phrase>
+    <phrase title="replaced_phrase_search_threads_and_posts" version_id="1" version_string=""><![CDATA[Search Discussions and Messages]]></phrase>
+    <phrase title="replaced_phrase_search_threads_started_by_this_member_only" version_id="1" version_string=""><![CDATA[Search discussions started by this member only]]></phrase>
+    <phrase title="social_all_news" version_id="1" version_string=""><![CDATA[All news]]></phrase>
+    <phrase title="social_best_news" version_id="1" version_string=""><![CDATA[Best news]]></phrase>
+    <phrase title="social_blog" version_id="1" version_string=""><![CDATA[Blog]]></phrase>
+    <phrase title="social_blogs" global_cache="1" version_id="1" version_string=""><![CDATA[Blogs]]></phrase>
+    <phrase title="social_blog_entry" version_id="1" version_string=""><![CDATA[Blog Entry]]></phrase>
+    <phrase title="social_blog_entry_by" version_id="1" version_string=""><![CDATA[Blog Entry by]]></phrase>
+    <phrase title="social_blog_post" version_id="1" version_string=""><![CDATA[Comment]]></phrase>
+    <phrase title="social_cancel_promotion" version_id="1" version_string=""><![CDATA[Cancel promotion]]></phrase>
+    <phrase title="social_choose_node" version_id="1" version_string=""><![CDATA[Choose a node]]></phrase>
+    <phrase title="social_comments" version_id="1" version_string=""><![CDATA[Comments]]></phrase>
+    <phrase title="social_comment_by" version_id="1" version_string=""><![CDATA[Comment by]]></phrase>
+    <phrase title="social_create_new_blog_entry" version_id="1" version_string=""><![CDATA[Create new article]]></phrase>
+    <phrase title="social_forum_options" version_id="1" version_string=""><![CDATA[Forum options [Social]]]></phrase>
+    <phrase title="social_home" global_cache="1" version_id="1" version_string=""><![CDATA[Home]]></phrase>
+    <phrase title="social_if_enabled_new_threads_will_appear_in_news_section" version_id="1" version_string=""><![CDATA[If enabled new threads will appear in news section.]]></phrase>
+    <phrase title="social_in_blog" version_id="1" version_string=""><![CDATA[in blog]]></phrase>
+    <phrase title="social_latest_blog_entries" global_cache="1" version_id="1" version_string=""><![CDATA[Latest Blog Entries]]></phrase>
+    <phrase title="social_latest_blog_entries_from_current" global_cache="1" version_id="1" version_string=""><![CDATA[Current Blog's Entries]]></phrase>
+    <phrase title="social_latest_forum_threads" global_cache="1" version_id="1" version_string=""><![CDATA[Latest Forum Threads]]></phrase>
+    <phrase title="social_latest_forum_threads_from_current" global_cache="1" version_id="1" version_string=""><![CDATA[Current Forum's Threads]]></phrase>
+    <phrase title="social_latest_news" version_id="1" version_string=""><![CDATA[Latest news]]></phrase>
+    <phrase title="social_navigation" version_id="1" version_string=""><![CDATA[Navigation]]></phrase>
+    <phrase title="social_news" version_id="1" version_string=""><![CDATA[News]]></phrase>
+    <phrase title="social_news_forums_list" version_id="1" version_string=""><![CDATA[News sections]]></phrase>
+    <phrase title="social_promote_thread" version_id="1" version_string=""><![CDATA[Promote to news section]]></phrase>
+    <phrase title="social_publish_threads_as_news" version_id="1" version_string=""><![CDATA[Publish new threads as news]]></phrase>
+    <phrase title="social_reading_news" version_id="1" version_string=""><![CDATA[Reading news]]></phrase>
+    <phrase title="social_read_all_news" version_id="1" version_string=""><![CDATA[Read all news →]]></phrase>
+    <phrase title="social_read_more" version_id="1" version_string=""><![CDATA[Read more]]></phrase>
+    <phrase title="social_read_more_news" version_id="1" version_string=""><![CDATA[Read more news ↓]]></phrase>
+    <phrase title="social_reply_to_comment_of_x" version_id="1" version_string=""><![CDATA[Reply to comment of {user}]]></phrase>
+    <phrase title="social_top_news" version_id="1" version_string=""><![CDATA[Top news]]></phrase>
+    <phrase title="social_x_liked_your_blog_post_in_the_thread_y" version_id="1" version_string=""><![CDATA[{name} liked your post in the blog entry {title}.]]></phrase>
+    <phrase title="social_x_liked_ys_blog_post_in_the_thread_z" version_id="1" version_string=""><![CDATA[{name} liked <a {posterParams}>{poster}'s post</a> in the blog entry {title}.]]></phrase>
+    <phrase title="style_property_group_social_master" version_id="1" version_string=""><![CDATA[Social]]></phrase>
+    <phrase title="style_property_group_social_master_desc" version_id="1" version_string=""><![CDATA[Blogs, news, etc.]]></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="public">
+      <prefix original_prefix="blogs" class="Social_Route_Prefix_Blogs" build_link="data_only"/>
+      <prefix original_prefix="news" class="Social_Route_Prefix_News" build_link="all"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties>
+    <group group_name="social" display_order="1">
+      <title>Social</title>
+      <description>Blogs, news, etc.</description>
+    </group>
+  </style_properties>
+  <templates>
+    <template title="news_feed_item_blog_post_insert" version_id="1" version_string=""><![CDATA[<h3 class="description">
+
+	<xen:if is="{$content.attach_count}">
+	
+		<xen:comment><!-- $user attached a file to a post --></xen:comment>
+		{xen:phrase news_feed_blog_post_insert_attachment,
+			'username={xen:helper username, $user, 'primaryText'}',
+			'threadTitle=<a href="{xen:link posts, $content}"{xen:if '{$content.hasPreview}', ' class="PreviewTooltip" data-previewUrl="{xen:link threads/preview, $content}"'}>{xen:helper threadPrefix, $content}{$content.title}</a>'}
+	
+	<xen:else />
+	
+		<xen:comment><!-- $user posted a post --></xen:comment>
+		{xen:phrase news_feed_blog_post_insert,
+			'username={xen:helper username, $user, 'primaryText'}',
+			'threadTitle=<a href="{xen:link posts, $content}"{xen:if '{$content.hasPreview}', ' class="PreviewTooltip" data-previewUrl="{xen:link threads/preview, $content}"'}>{xen:helper threadPrefix, $content}{$content.title}</a>'}
+
+	</xen:if>
+	
+</h3>
+
+<p class="snippet post">{xen:helper snippet, $content.message, $xenOptions.newsFeedMessageSnippetLength, {xen:array 'stripQuote=1'}}</p>
+
+<xen:include template="news_feed_attached_images" />]]></template>
+    <template title="news_feed_item_blog_post_like" version_id="1" version_string=""><![CDATA[<h3 class="description">
+
+	<xen:if is="{$content.user_id} == {$visitor.user_id}">
+	
+		<xen:comment><!-- $user liked your post --></xen:comment>
+		{xen:phrase social_x_liked_your_blog_post_in_the_thread_y,
+			'name={xen:helper username, $user, 'primaryText'}',
+			'title=<a href="{xen:link posts, $content}"{xen:if '{$content.hasPreview}', ' class="PreviewTooltip" data-previewUrl="{xen:link threads/preview, $content}"'}>{xen:helper threadPrefix, $content}{$content.title}</a>'}
+		
+	<xen:else />
+	
+		<xen:comment><!-- $user liked $contentUser's post --></xen:comment>
+		{xen:phrase social_x_liked_ys_blog_post_in_the_thread_z,
+			'name={xen:helper username, $user, 'primaryText'}',
+			'posterParams=href="{xen:link posts, $content}"', 'poster={$content.username}',
+			'title=<a href="{xen:link posts, $content}"{xen:if '{$content.hasPreview}', ' class="PreviewTooltip" data-previewUrl="{xen:link threads/preview, $content}"'}>{xen:helper threadPrefix, $content}{$content.title}</a>'}
+		
+	</xen:if>
+
+</h3>
+
+<p class="snippet">{xen:helper snippet, $content.message, $xenOptions.newsFeedMessageSnippetLength, {xen:array 'stripQuote=1'}}</p>
+
+<xen:include template="news_feed_attached_images" />]]></template>
+    <template title="news_feed_item_blog_thread_insert" version_id="1" version_string=""><![CDATA[<p class="description">{xen:phrase news_feed_blog_thread_insert,
+	'username={xen:helper username, $user, 'primaryText'}'
+}</p>
+
+<h3 class="title thread"><span class="icon"></span> <a href="{xen:link threads, $content}">{xen:helper threadPrefix, $content}{$content.title}</a></h3>
+
+<p class="snippet post">{xen:helper snippet, $content.message, $xenOptions.newsFeedMessageSnippetLength}</p>
+
+<xen:include template="news_feed_attached_images" />
+
+<h4 class="minorTitle forum"><span class="icon"></span> {xen:phrase social_blog}: <a href="{xen:link forums, $content}">{$content.node_title}</a></h4>]]></template>
+    <template title="search_result_blog_post" version_id="1" version_string=""><![CDATA[<li id="post-{$post.post_id}" class="searchResult post primaryContent{xen:if $post.isIgnored, ' ignored'}" data-author="{$post.username}">
+
+	<div class="listBlock posterAvatar"><xen:avatar user="$post" size="s" img="true" /></div>
+
+	<div class="listBlock main">
+		<div class="titleText">
+			<span class="contentType">{xen:phrase social_blog_post}</span>
+			<h3 class="title{xen:if {$thread.isNew}, ' new'}"><a href="{xen:link posts, $post}">{xen:helper threadPrefix, $thread}{xen:helper highlight, $thread.title, $search.search_query, 'highlight'}</a></h3>
+		</div>
+
+		<blockquote class="snippet">
+			<a href="{xen:link posts, $post}">{xen:helper snippet, $post.message, 150, {xen:array 'term={$search.search_query}', 'emClass=highlight', 'stripQuote=1'}}</a>
+		</blockquote>
+
+		<div class="meta">
+			{xen:phrase social_comment_by}: <xen:username user="$post" />,
+			<xen:datetime time="{$post.post_date}" />
+			{xen:phrase social_in_blog}: <a href="{xen:link forums, $forum}">{$forum.title}</a>
+		</div>
+	</div>
+</li>]]></template>
+    <template title="search_result_blog_thread" version_id="1" version_string=""><![CDATA[<li id="thread-{$thread.thread_id}" class="searchResult thread primaryContent{xen:if $thread.isIgnored, ' ignored'}" data-author="{$thread.username}">
+
+	<div class="listBlock posterAvatar"><xen:avatar user="$thread" size="s" img="true" /></div>
+
+	<div class="listBlock main">
+		<div class="titleText">
+			<span class="contentType">{xen:phrase social_blog_entry}</span>
+			<h3 class="title{xen:if {$thread.isNew}, ' new'}"><a href="{xen:link threads, $thread}">{xen:helper threadPrefix, $thread}{xen:helper highlight, $thread.title, $search.search_query, 'highlight'}</a></h3>
+		</div>
+
+		<blockquote class="snippet">
+			<a href="{xen:link threads, $thread}">{xen:helper snippet, $post.message, 150, {xen:array 'term={$search.search_query}', 'emClass=highlight', 'stripQuotes=1'}}</a>
+		</blockquote>
+
+		<div class="meta">
+			{xen:phrase social_blog_entry_by}: <xen:username user="$thread" />,
+			<xen:datetime time="$thread.post_date" />,
+			{xen:phrase x_replies, 'count={xen:number $thread.reply_count}'},
+			{xen:phrase social_in_blog}: <a href="{xen:link forums, $forum}">{$forum.title}</a>
+		</div>
+	</div>
+
+</li>]]></template>
+    <template title="social.css" version_id="1" version_string=""></template>
+    <template title="social_comment.css" version_id="1" version_string=""><![CDATA[.comments.children
+{
+	padding-left: 25px;
+	margin-left: 24px;
+	border-left: 1px solid transparent;
+}
+
+	.comments.children:hover
+	{
+		border-color: {xen:property primaryLighterStill};
+	}
+
+/*	.comments .message
+	{
+		position: relative;
+	}
+
+	.comments .message:hover::before
+	{
+		background: {xen:property primaryLighter};
+		border-radius: 4px;
+		width: 4px;
+		height: 4px;
+		position: absolute;
+		left: -30px;
+		top: 10px;
+		content: " ";
+	}
+*/
+
+.messageList .comments .subHeading
+{
+	margin-bottom: 10px;
+}
+
+.pageContent .messageList .comments .message
+{
+	margin-bottom: 24px;
+	padding: 0;
+	border: none;
+}
+
+.messageList .comments .message.unread
+{
+	background-color: {xen:property primaryLightest};
+}
+
+.messageList .comments .message.mine
+{
+	background-color: {xen:property secondaryLightest};
+}
+
+	.messageList .comments .message .messageContent
+	{
+		min-height: 0;
+	}
+
+	.messageList .comments .message .messageUserInfo
+	{
+		display: block;
+		width: auto;
+	}
+
+		.messageList .comments .message .messageUserInfo .messageUserBlock
+		{
+			float: left;
+			padding: 1px;
+		}
+
+			.messageList .comments .message .messageUserBlock .avatar
+			{
+				float: left;
+			}
+
+				.messageList .comments .message .messageUserBlock .avatar img
+				{
+					width: 24px;
+					height: 24px;
+				}
+
+			.messageList .comments .message .messageUserBlock .arrow
+			{
+				display: none;
+			}
+
+	
+	.messageList .comments .message .messageInfo
+	{
+		margin-left: 50px;
+	}
+	
+	.messageList .comments .message .messageInfo .messageMeta
+	{
+		margin: 0;
+		padding: 0;
+		padding-top: 3px;
+		overflow: hidden;
+		font-size: 11px;
+		line-height: 14px;
+	}
+	
+	.messageList .comments .message .messageMeta .privateControls
+	{
+		float: left;
+	}
+	
+	.messageList .comments .message .messageMeta .publicControls
+	{
+		text-align: right;
+	}
+
+.messageList .comments .message .messageLikes
+{
+	margin: 10px 0;
+}
+
+	
+	.textareaWrapper
+	{
+		margin-right: 10px;
+		margin-left: 65px;
+	}
+	
+		.commentForm textarea
+		{
+			width: 100%;
+		}
+		
+		.commentForm .submit
+		{
+			margin-top: 5px;
+			width: 98%;
+			text-align: right;
+		}]]></template>
+    <template title="social_comments" version_id="1" version_string=""><![CDATA[<xen:require js="js/social/comment.js" />
+
+<xen:foreach loop="$posts" value="$post">
+
+	<xen:if is="{$post.message_state} == 'deleted'">
+		<xen:include template="post_deleted_placeholder" />
+	<xen:else />
+		<xen:include template="post" />
+	</xen:if>
+
+   <xen:if is="{$post.children}  and {$post.message_state} != 'deleted'">
+     <ol class="comments children" id="children-{$post.post_id}">
+        {xen:raw $post.children.template}
+     </ol>
+   </xen:if>
+
+</xen:foreach>
+]]></template>
+    <template title="social_comments_template" version_id="1" version_string=""><![CDATA[</li>
+<li>
+<ol class="comments" id="children-0">
+	<h3 class="subHeading">{xen:phrase 'social_comments'}</h3>
+	{xen:raw $commentsTemplate}
+</ol>
+
+<xen:edithint template="attached_files" />
+
+
+<xen:require css="social.css" />
+<xen:require css="social_thread_view.css" />
+<xen:require css="social_comment.css" />
+<xen:require js="js/social/comment.js" />]]></template>
+    <template title="social_comment_public_controls" version_id="1" version_string=""><![CDATA[<xen:if is="{$post.canLike}">
+	<a href="{xen:link posts/like, $post}" class="LikeLink item control {xen:if $post.like_date, unlike, like}" data-container="#likes-post-{$post.post_id}"><span></span><span class="LikeLabel">{xen:if $post.like_date, {xen:phrase unlike}, {xen:phrase like}}</span></a>
+</xen:if>
+
+<xen:if is="{$canReply} and !{$post.isFirst}">
+	<a href="{xen:link threads/reply, $thread, 'quote={$post.post_id}'}" data-postUrl="{xen:link posts/quote, $post}" class="item control reply OverlayTrigger" title="{xen:phrase reply_quoting_this_message}"><span></span>{xen:phrase reply}</a>
+</xen:if>]]></template>
+    <template title="social_links" version_id="1" version_string=""><![CDATA[<ul class="secondaryContent blockLinksList">
+    <li><a href="{xen:link link1}">Вкладка1</a></li>
+    <li><a href="{xen:link link2}">Вкладка2</a></li>
+</ul>]]></template>
+    <template title="social_message_user_info_avatar" version_id="1" version_string=""><![CDATA[<xen:if is="!{$user.isFirst}">
+	<xen:avatar user="$user" size="s" img="true" />
+</xen:if>]]></template>
+    <template title="social_news" version_id="1" version_string=""><![CDATA[<xen:require js="js/social/news.js" />
+
+<xen:if is="{$title}">
+  <xen:title>{$title}</xen:title>
+  <xen:h1>{$title}</xen:h1>
+</xen:if>
+
+<xen:if is="{$description}"><xen:description>{$description}</xen:description></xen:if>
+
+<xen:container var="$extraTabs.home.news.linksTemplate">
+	<xen:include template="social_news_navlinks" />
+</xen:container>
+
+<xen:require css="social_news.css" />
+<xen:require css="discussion_list.css" />
+<xen:require css="message.css" />
+<xen:require css="message_user_info.css" />
+
+
+<div class="sectionMain" id="NewsList">
+	<xen:foreach loop="$newsList" value="$thread">
+		<xen:include template="social_news_item" />
+	</xen:foreach>
+</div>
+
+<blockquote class="messageText ugc baseHtml">
+	<div class="readAllNews">
+		<xen:if is="{xen:count $newsNodes, false}>1">
+			<a href="{xen:link misc/news-forum-chooser}" class="OverlayTrigger Tooltip" title="{xen:phrase social_news_forums_list}">{xen:phrase social_read_all_news}</a>
+		<xen:else/>
+	           <xen:foreach loop="$newsNodes" value="$node">
+		       <a href="{xen:link forums, $node}" title="{$node.node_title}">{xen:phrase social_read_all_news}</a>
+	           </xen:foreach>
+		</xen:if>
+	</div>
+
+	<div class="readMoreNews">
+	    <a href="{xen:link news}" data-href="{xen:link news}" class="NewsLoader" data-target="#NewsList" data-count="{$xenOptions.socialNewsPerPage}" data-oldestDate="{$thread.post_date}">{xen:phrase social_read_more_news}</a>
+	</div>
+
+</blockquote>]]></template>
+    <template title="social_news.css" version_id="1" version_string=""><![CDATA[.messageUserBlock
+{
+	float: right;
+	margin-right: -3px;
+	margin-left: 7px;
+	margin-bottom: 7px;
+	margin-top: -33px;
+}
+.messageUserBlock div.avatarHolder
+{
+	border: 1px solid {xen:property contentBackground};
+	padding: 0px !important;
+}
+.subHeading h2
+{
+	font-size: 12pt;
+}
+.subHeading h3
+{
+	font-size: 11pt;
+/*	font-weight: bold;*/
+}
+
+.message .messageMeta {
+	padding: 5px !important;
+	margin: 0px 7px 2px 7px !important; 
+}
+.message .primaryContent {
+	padding-bottom: 0px;
+}
+.message .readMoreHelper {
+	float: left;
+	height:57px;
+	width:0px;
+}
+.message .readMore {
+	clear: left;
+	margin-top: 7px;
+}
+.messageText .readMoreNews {
+	margin-left: 21px;
+	white-space: nowrap;
+}
+
+.messageText .readAllNews {
+	float: right;
+	margin-right: 21px;
+	white-space: nowrap;
+}
+.message .primaryContentEnd {
+	clear: both;
+	margin-top: 7px;
+}
+]]></template>
+    <template title="social_news_item" version_id="1" version_string=""><![CDATA[<div id="post-{$thread.post_id}" class="message" data-author="{$thread.username}">
+
+	<div class="subHeading">
+		<xen:comment><div style="float: right">
+			<a href="{xen:link threads, $thread}"><xen:datetime time="$thread.post_date" /></a>
+		</div></xen:comment>
+		<h3><div style="float:right; margin-right:115px;">«<a href="{xen:link forums, $thread}">{$thread.node_title}</a>»</div><a href="{xen:link threads, $thread}">{$thread.title}</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><xen:avatar user="$thread" size="m" itemprop="photo" /></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			{xen:raw $thread.messageHtml}
+			<div class="readMore">
+				<a href="{xen:link threads, $thread}">{xen:phrase social_read_more}</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="{xen:link members, $thread}" class="author username">{$thread.username}</a>,
+				<a href="{xen:link threads, $thread}" title="{xen:phrase permalink}" class="datePermalink" data-time="{$thread.post_date}"><xen:datetime time="$thread.post_date" /></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="{xen:link threads, $thread}" class="item control">{xen:phrase replies}: {xen:number $thread.reply_count}</a>
+		</div>
+	</div>
+</div>]]></template>
+    <template title="social_news_navlinks" version_id="1" version_string=""><![CDATA[<ul class="secondaryContent blockLinksList">
+<li><a href="{xen:link news, null , 'filter=top'}" data-href="{xen:link news, null , 'filter=top'}" class="NewsLoader filter" data-filter="top" data-target="#NewsList" data-reload="filter" data-count="{$xenOptions.socialNewsPerPage}">{xen:phrase social_top_news}</a></li>
+<li><a href="{xen:link news, null , 'filter=latest'}" data-href="{xen:link news, null, 'filter=latest'}" class="NewsLoader filter" data-filter="latest" data-target="#NewsList" data-reload="filter" data-count="{$xenOptions.socialNewsPerPage}">{xen:phrase social_latest_news}</a></li>
+<li><a href="{xen:link 'find-new/threads'}">{xen:phrase whats_new}</a></li>
+<xen:if is="{$visitor.user_id} and {$xenOptions.socialBlogActive}"><li><a href="{xen:link misc/create-thread-blog-chooser}" class="OverlayTrigger Tooltip">{xen:phrase social_create_new_blog_entry}</a></li></xen:if>
+</ul>]]></template>
+    <template title="social_new_threads" version_id="1" version_string=""><![CDATA[<xen:title>{xen:phrase recent_threads}</xen:title>
+<xen:description>
+	{xen:phrase all_threads_from_x_recently_updated, 'board_title={$xenOptions.boardTitle}'}
+	<xen:if is="{$xenOptions.enableNewsFeed}"><a href="{xen:link recent-activity}">{xen:phrase you_may_see_members_doing_recently}</a></xen:if>
+</xen:description>
+
+
+<xen:container var="$head.robots">
+	<meta name="robots" content="noindex" /></xen:container>
+
+<xen:require css="discussion_list.css" />
+<xen:require js="js/xenforo/discussion_list.js" />
+	
+<div class="pageNavLinkGroup">
+	<xen:pagenav link="find-new/threads" linkdata="{$search}" page="{$page}" perpage="{$perPage}" total="{$totalThreads}" />
+</div>
+
+<div class="discussionList section sectionMain">
+	<form action="{xen:link inline-mod/thread/switch}" method="post"
+		class="DiscussionList InlineModForm"
+		data-cookieName="threads"
+		data-controls="#InlineModControls"
+		data-imodOptions="#ModerationSelect option">
+		
+		<xen:set var="$_activityBarShown">0</xen:set>
+	
+		<ol class="discussionListItems">
+		<xen:foreach loop="$threads" value="$thread">
+			
+			<xen:if is="{$showingNewThreads} AND !{$_activityBarShown} AND {$thread.last_post_date} < {$session.previousActivity}">
+				<li class="discussionListItem"><div class="noteRow">{xen:phrase threads_below_not_been_updated_since_last_visit_have_unread}</div></li>
+				<xen:set var="$_activityBarShown">1</xen:set>
+			</xen:if>
+			
+			<xen:include template="social_thread_list_item">
+				<xen:set var="$showForumLink">1</xen:set>
+				<xen:set var="$showLastPageNumbers">1</xen:set>
+			</xen:include>
+
+		</xen:foreach>
+		</ol>
+	
+		<div class="sectionFooter">
+			<span class="contentSummary">{xen:phrase showing_threads_x_to_y_of_z, 'start={xen:number $threadStartOffset}', 'end={xen:number $threadEndOffset}', 'total={xen:number $totalThreads}'}</span>
+	
+			<xen:if is="{$inlineModOptions}">
+				<xen:include template="inline_mod_controls_thread" />
+			</xen:if>
+		</div>
+
+		<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	</form>
+	
+	<xen:include template="preview_tooltip" />
+
+</div>
+
+<div class="pageNavLinkGroup">
+	<xen:pagenav link="find-new/threads" linkdata="{$search}" page="{$page}" perpage="{$perPage}" total="{$totalThreads}" />
+</div>
+]]></template>
+    <template title="social_node_chooser" version_id="1" version_string=""><![CDATA[<xen:title>{xen:phrase quick_navigation_menu}</xen:title>
+
+<xen:require css="quick_navigation_menu.css" />
+<xen:require css="social_node_chooser.css" />
+
+<div class="section" data-overlayClass="socialNodeChooserOverlay">
+	<div id="newsMenu">
+		<div class="jumpMenuColumn">
+			<h3 class="primaryContent">{xen:phrase social_choose_node}</h3>
+			<div class="secondaryContent nodeList">
+				<ol class="blockLinksList">
+					<xen:foreach loop="$nodes" value="$node">
+						<li class="d{$node.depth} {xen:if "{$selected} == 'node-{$node.node_id}'", 'OverlayScroller'}">
+							<a href="{xen:link {$nodeTypes.{$node.node_type_id}.public_route_prefix}, $node}{xen:if '{$node.node_type_id} == "Forum"', '{$action}'}"
+								class="{xen:if '{$node.node_type_id} == "Category"', 'OverlayCloser'} {xen:if "{$selected} == 'node-{$node.node_id}'", 'selected'}">
+								<span class="_depth{$node.depth} depthPad">{$node.title}</span>
+							</a>
+						</li>
+					</xen:foreach>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="sectionFooter overlayOnly"><a class="button primary OverlayCloser">{xen:phrase close}</a></div>
+</div>]]></template>
+    <template title="social_node_chooser.css" version_id="1" version_string=""><![CDATA[.socialNodeChooserOverlay.xenOverlay
+{
+	width: 500px;
+}]]></template>
+    <template title="social_sidebar_forum_stats" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
+
+<!-- block: forum_stats -->
+<div class="section">
+	<div class="secondaryContent statsList" id="boardStats">
+		<h3>{xen:phrase forum_statistics}</h3>
+		<div class="pairsJustified">
+			<dl class="discussionCount"><dt>{xen:phrase discussions}:</dt>
+				<dd>{xen:number $boardTotals.discussions}</dd></dl>
+			<dl class="messageCount"><dt>{xen:phrase messages}:</dt>
+				<dd>{xen:number $boardTotals.messages}</dd></dl>
+			<dl class="memberCount"><dt>{xen:phrase members_count}:</dt>
+				<dd>{xen:number $boardTotals.users}</dd></dl>
+			<dl><dt>{xen:phrase latest_member}:</dt>
+				<dd><xen:username user="$boardTotals.latestUser" /></dd></dl>
+			<!-- slot: forum_stats_extra -->
+		</div>
+	</div>
+</div>
+<!-- end block: forum_stats -->]]></template>
+    <template title="social_sidebar_news_navigation" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
+
+<!-- block: news_navigation -->
+<xen:if is="{xen:count $newsNodes,false}>1">
+<div class="section blogs">
+	<div class="secondaryContent">
+		<h3>{xen:phrase social_navigation}</h3>
+		<ul class="blockLinksList">
+		<xen:if is="{$newsNodes}">
+			<li><a href="{xen:link news}" data-href="{xen:link news}" class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="{$xenOptions.socialNewsPerPage}" data-forumId="0">{xen:phrase social_all_news}</a></li>
+			<xen:foreach loop="$newsNodes" value="$node">
+				<li><a href="{xen:link forums , $node}" data-href="{xen:link news}" class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="{$xenOptions.socialNewsPerPage}" data-forumId="{$node.node_id}">{$node.title}</a></li>
+			</xen:foreach>
+		</xen:if>
+		</ul>
+	</div>
+</div>
+</xen:if>
+
+
+]]></template>
+    <template title="social_sidebar_online_members" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
+
+<!-- block: sidebar_online_users -->
+<div class="section membersOnline userList">		
+	<div class="secondaryContent">
+		<h3><a href="{xen:link online}" title="{xen:phrase see_all_online_users}">{xen:phrase members_online_now}</a></h3>
+		
+		<xen:if is="{$onlineUsers.records}">
+		
+			<xen:if is="{$visitor.user_id}">
+				<xen:if hascontent="true">
+				<h4 class="minorHeading"><a href="{xen:link account/following}">{xen:phrase people_you_follow}:</a></h4>
+				<ul class="followedOnline">
+					<xen:contentcheck>
+						<xen:foreach loop="$onlineUsers.records" value="$user">
+							<xen:if is="{$user.followed}">
+								<li title="{$user.username}" class="Tooltip"><xen:avatar user="$user" size="s" img="true" class="_plainImage" /></li>
+							</xen:if>
+						</xen:foreach>
+					</xen:contentcheck>
+				</ul>
+				<h4 class="minorHeading"><a href="{xen:link members}">{xen:phrase members}:</a></h4>
+				</xen:if>
+			</xen:if>
+			
+			<ol class="listInline">
+				<xen:foreach loop="$onlineUsers.records" value="$user" i="$i">
+					<xen:if is="{$i} <= {$onlineUsers.limit}">
+						<li>
+						<xen:if is="{$user.user_id}">
+							<a href="{xen:link members, $user}"
+								class="username{xen:if '!{$user.visible}', ' invisible'}{xen:if {$user.followed}, ' followed'}">{$user.username}</a><xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+						<xen:else />
+							{xen:phrase guest}<xen:if is="{$i} < {$onlineUsers.limit}">,</xen:if>
+						</xen:if>
+						</li>
+					</xen:if>
+				</xen:foreach>
+				<xen:if is="{$onlineUsers.recordsUnseen}">
+					<li class="moreLink">... <a href="{xen:link online}" title="{xen:phrase see_all_visitors}">{xen:phrase and_x_more, 'count={xen:number $onlineUsers.recordsUnseen}'}</a></li>
+				</xen:if>
+			</ol>
+		</xen:if>
+		
+		<div class="footnote">
+			{xen:phrase online_now_x_members_y_guests_z, 'total={xen:number $onlineUsers.total}', 'members={xen:number $onlineUsers.members}', 'guests={xen:number $onlineUsers.guests}'}
+		</div>
+	</div>
+</div>
+<!-- end block: sidebar_online_users -->]]></template>
+    <template title="social_sidebar_online_staff" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
+
+<!-- block: sidebar_online_staff -->
+<xen:if hascontent="true">
+	<div class="section staffOnline avatarList">
+		<div class="secondaryContent">
+			<h3>{xen:phrase staff_online_now}</h3>
+			<ul>
+				<xen:contentcheck>
+					<xen:foreach loop="$onlineUsers.records" value="$user">
+						<xen:if is="{$user.is_moderator} OR {$user.is_admin}">
+							<li>
+								<xen:avatar user="$user" size="s" img="true" />
+								<xen:username user="$user" rich="true" />
+								<div class="userTitle">{xen:helper userTitle, $user}</div>
+							</li>
+						</xen:if>
+					</xen:foreach>
+				</xen:contentcheck>
+			</ul>
+		</div>
+	</div>
+</xen:if>
+<!-- end block: sidebar_online_staff -->]]></template>
+    <template title="social_sidebar_posts" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
+<xen:require css="social_sidebar_posts.css" />
+
+<div class="section latestPosts">
+    <div class="secondaryContent">
+        <h3>{$widgetTitle}</h3>
+        <ol>
+            <xen:foreach loop="$posts" value="$post">
+                <li>
+                    <xen:if is="{$showAvatar}">         
+		       <xen:avatar user="$post" size="s" img="true" />
+                    </xen:if>
+                    <a href="{xen:link threads, $post}" class="postLink">{xen:helper snippet, $post.title, 42}</a>
+		    <span class="footnote"><xen:username user="$post" class="muted" />, <xen:datetime time="{$post.post_date}" class="faint" /></span>
+                </li>
+            </xen:foreach>
+        </ol>
+    </div>
+</div>]]></template>
+    <template title="social_sidebar_posts.css" version_id="1" version_string=""><![CDATA[.sidebar .latestPosts ol li
+{
+	margin: 10px 0;
+}
+
+body .sidebar .section.latestPosts .secondaryContent ol li .footnote
+{
+	display: block;
+	margin-top: 2px;
+}]]></template>
+    <template title="social_sidebar_share_page" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
+
+<xen:if hascontent="true">	
+
+	<xen:require css="sidebar_share_page.css" />
+	<div class="section infoBlock sharePage">
+		<div class="secondaryContent">
+			<h3>{xen:phrase share_this_page}</h3>
+			<xen:contentcheck>
+				<xen:hook name="sidebar_share_page_options">
+				<xen:if is="{$xenOptions.tweet.enabled}">
+					<div class="tweet shareControl" style="float:none;">
+						<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
+							data-lang="{xen:helper twitterLang, $visitorLanguage.language_code}"
+							data-url="{$url}"
+							{xen:if {$xenOptions.tweet.via}, 'data-via="{$xenOptions.tweet.via}"'}
+							{xen:if {$xenOptions.tweet.related}, 'data-related="{$xenOptions.tweet.related}"'}>{xen:phrase tweet}</a>
+					</div>
+				</xen:if>		
+				<xen:if is="{$xenOptions.facebookLike}">
+					<div class="facebookLike shareControl" style="float:none;">
+						<xen:container var="$facebookSdk">1</xen:container>
+						<fb:like href="{$url}" layout="button_count" action="{$xenOptions.facebookLikeAction}" font="trebuchet ms" colorscheme="{xen:property fbColorScheme}"></fb:like>
+					</div>
+				</xen:if>
+				<xen:if is="{$xenOptions.plusone}">
+					<div class="plusone shareControl" style="float:none;">
+						<div class="g-plusone" data-size="medium" data-count="true" data-href="{$url}"></div>
+					</div>
+				</xen:if>	
+				</xen:hook>		
+			</xen:contentcheck>
+		</div>
+	</div>
+</xen:if>]]></template>
+    <template title="social_tab_links" version_id="1" version_string=""><![CDATA[<xen:if is="{$visitor.user_id}">
+	<ul class="secondaryContent blockLinksList">
+                <li><a href="{xen:link misc/create-thread-blog-chooser}" class="OverlayTrigger Tooltip">{xen:phrase social_create_new_blog_entry}</a></li>
+	</ul>
+</xen:if>]]></template>
+    <template title="social_thread_list_item" version_id="1" version_string=""><![CDATA[<xen:require css="discussion_list.css" />
+
+<xen:if is="{$thread.isDeleted}"><xen:include template="thread_list_item_deleted" /><xen:else />
+
+<li id="thread-{$thread.thread_id}" class="discussionListItem {$thread.discussion_state}{xen:if '!{$thread.discussion_open}', ' locked'}{xen:if {$thread.sticky}, ' sticky'}{xen:if {$thread.isNew}, ' unread'}{xen:if {$thread.prefix_id}, ' prefix{$thread.prefix_id}'}{xen:if {$thread.isIgnored}, ' ignored'}" data-author="{$thread.username}">
+
+	<div class="listBlock posterAvatar">
+		<span class="avatarContainer">
+			<xen:avatar user="$thread" size="s" img="true" />
+			<xen:if is="{$thread.user_post_count}"><xen:avatar user="$visitor" size="s" img="true" class="miniMe" title="{xen:phrase you_have_posted_x_messages_in_this_thread, 'count={xen:number $thread.user_post_count}'}" /></xen:if>
+		</span>
+	</div>
+
+	<div class="listBlock main">
+
+		<div class="titleText">
+			<h3 class="title">
+				<xen:if is="{$thread.canInlineMod}"><input type="checkbox" name="threads[]" value="{$thread.thread_id}" class="InlineModCheck" id="inlineModCheck-thread-{$thread.thread_id}" data-target="#thread-{$thread.thread_id}" title="{xen:phrase select_thread}: '{$thread.title}'" /></xen:if>
+				<xen:if is="{$showSubscribeOptions}"><input type="checkbox" name="thread_ids[]" value="{$thread.thread_id}" /></xen:if>
+				<xen:if is="{$thread.prefix_id}">
+					<xen:if is="{$linkPrefix}">
+						<a href="{xen:link forums, $forum, 'prefix_id={$thread.prefix_id}'}" class="prefixLink"
+							title="{xen:phrase show_only_threads_prefixed_by_x, 'prefix={xen:helper threadPrefix, $thread, plain, ""}'}">{xen:helper threadPrefix, $thread, html, ''}</a>
+					<xen:else />
+						{xen:helper threadPrefix, $thread}
+					</xen:if>
+				</xen:if>
+				<a href="{xen:link "threads{xen:if '{$thread.isNew} AND {$thread.haveReadData}', '/unread'}", $thread}"
+					title="{xen:if '{$thread.isNew} AND {$thread.haveReadData}', {xen:phrase go_to_first_unread_message}}"
+					class="{xen:if $thread.hasPreview, PreviewTooltip}"
+					data-previewUrl="{xen:if $thread.hasPreview, {xen:link threads/preview, $thread}}">{xen:helper wrap, $thread.title, 50}</a>
+				<xen:if is="{$thread.isNew}"><a href="{xen:link threads/unread, $thread}" class="unreadLink" title="{xen:phrase go_to_first_unread_message}"></a></xen:if>
+			</h3>
+
+			<xen:if hascontent="true">
+				<div class="iconKey">
+				<xen:contentcheck>
+					<xen:hook name="thread_list_item_icon_key" params="{xen:array 'thread={$thread}'}">
+					<xen:if is="{$thread.isModerated}"><span class="moderated" title="{xen:phrase moderated}">{xen:phrase moderated}</span></xen:if>
+					<xen:if is="!{$thread.discussion_open}"><span class="locked" title="{xen:phrase locked}">{xen:phrase locked}</span></xen:if>
+					<xen:if is="{$thread.sticky}"><span class="sticky" title="{xen:phrase sticky}">{xen:phrase sticky}</span></xen:if>
+					<xen:if is="{$thread.isRedirect}"><span class="redirect" title="{xen:phrase redirect}">{xen:phrase redirect}</span></xen:if>
+					</xen:hook>
+				</xen:contentcheck>
+				</div>
+			</xen:if>
+
+			<div class="secondRow">
+				<div class="posterDate muted">
+					<xen:username user="$thread" title="{xen:phrase thread_starter}" />,
+					<a{xen:if {$visitor.user_id}, ' href="{xen:link threads, $thread}"'} class="faint"><xen:datetime time="$thread.post_date" title="{xen:if {$visitor.user_id}, '{xen:phrase go_to_first_message_in_thread}'}" /></a><xen:if is="{$showForumLink}">,
+					<a href="{xen:link forums, $thread.forum}" class="forumLink">{$thread.forum.title}</a></xen:if>
+
+					<xen:if is="{$showLastPageNumbers} AND {$thread.lastPageNumbers}">
+						<span class="itemPageNav">
+							<span>...</span>
+							<xen:foreach loop="$thread.lastPageNumbers" value="$pageNumber">
+								<a href="{xen:link threads, $thread, 'page={$pageNumber}'}">{$pageNumber}</a>
+							</xen:foreach>
+						</span>
+					</xen:if>
+				</div>
+
+				<div class="controls faint">
+					<xen:if is="{$thread.canEditThread}"><a href="{xen:link 'threads/list-item-edit', $thread}" class="EditControl">{xen:phrase edit}</a></xen:if>
+					<xen:if is="{$showSubscribeOptions} AND {$thread.email_subscribe}">{xen:phrase email}</xen:if>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</li>
+
+</xen:if>
+]]></template>
+    <template title="social_thread_promote" version_id="1" version_string=""><![CDATA[<xen:require js="js/social/news.js" />
+<xen:if is="{$canEditThread}">
+	<a href="{xen:link 'threads/promote', $thread}" class="PromotionLink" style="display:none;">{xen:if $thread.promotion_date, '{xen:phrase social_cancel_promotion}', '{xen:phrase social_promote_thread}'}</a>
+</xen:if>]]></template>
+    <template title="social_thread_reply" version_id="1" version_string=""><![CDATA[<xen:require js="js/social/comment.js" />
+
+<xen:title>{xen:phrase reply_to_x, 'title={xen:helper threadPrefix, $thread, escaped}{$thread.title}'}</xen:title>
+
+<xen:navigation>
+	<xen:breadcrumb source="$nodeBreadCrumbs" />
+	<xen:breadcrumb href="{xen:if '{$post}', {xen:link posts, $post}, {xen:link threads, $thread}}">{xen:helper threadPrefix, $thread}{$thread.title}</xen:breadcrumb>
+</xen:navigation>
+
+<form id="Reply" action="{xen:link threads/add-reply, $thread}" method="post" class="section AutoValidator InlineMessageEditor NoAutoHeader">
+
+	<h2 class="heading overlayOnly">{xen:phrase social_reply_to_comment_of_x, 'user={$post.username}'}</h2>
+
+	<div class="secondaryContent messageContainer">{xen:raw $editorTemplate}</div>
+
+	<div class="sectionFooter">
+		<span class="buttonContainer">
+			<input type="submit" value="Ответить" accesskey="s" class="button primary" />
+			<input type="button" value="{xen:phrase cancel}" class="button OverlayCloser" accesskey="r" />
+		</span>
+	</div>
+
+	<input type="hidden" name="post_id" value="{$post.post_id}" />
+	<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+</form>]]></template>
+    <template title="social_thread_view.css" version_id="1" version_string=""><![CDATA[.pageContent .messageList .message
+{
+	padding-bottom: 10px;
+}
+
+.messageList .message .messageUserInfo
+{
+	display: none;
+}
+
+.messageList .message .messageInfo
+{
+	margin-left: 0;
+}]]></template>
+    <template title="widgets_sidebar" version_id="1" version_string=""><![CDATA[111<xen:hook name="widgets_sidebar">11
+</xen:hook>]]></template>
+  </templates>
+  <bb_code_media_sites/>
+</addon>
