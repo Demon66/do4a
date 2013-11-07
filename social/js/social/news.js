@@ -68,7 +68,7 @@
                 $news.data('filter',($link.data('filter')?$link.data('filter'):currentFilter));
                 var currentForumId = $news.data('forumid')?$news.data('forumid'):'';
 				$news.data('forumid',(($link.data('forumid')!==null)?$link.data('forumid'):currentForumId));
-                $news.data('oldestDate',0);
+                $news.data('oldestdate',0);
 				$news.children().xfRemove('xfFadeOut');
                 $('.readMoreNews a.NewsLoader').show();
                 $('a.NewsLoader.'+$link.data('reload')).removeClass('selected');//filter link has class 'filter', forum link has class 'forum'
@@ -76,9 +76,9 @@
 			}
 			else
 			{
-				if (!$news.data('oldestDate') && $link.data('oldestDate'))
+				if (!$news.data('oldestdate') && $link.data('oldestdate'))
 				{
-					$news.data('oldestDate',$link.data('oldestDate'));
+					$news.data('oldestdate',$link.data('oldestdate'));
 				}
 				if (!$news.data('forumid') && $link.data('forumid'))
 				{
@@ -97,7 +97,7 @@
 					+ '<input type="hidden" name="_xfRequestUri" value="'+window.location.pathname + window.location.search+'" />'
 					+ ((XenForo._csrfToken) ? '<input type="hidden" name="_xfToken" value="'+XenForo._csrfToken+'" />' : '')
 //					+ '<input type="hidden" name="_xfResponseType" value="json-text" />'
-					+ '<input type="hidden" name="oldest_date" value="'+$news.data('oldestDate')+'" />'
+					+ '<input type="hidden" name="oldest_date" value="'+$news.data('oldestdate')+'" />'
 					+ '<input type="hidden" name="forum_id" value="'+$news.data('forumid')+'" />'
 					+ '<input type="hidden" name="filter" value="'+$news.data('filter')+'" />'
 					+ '</form>'
@@ -106,7 +106,7 @@
 
 			XenForo.ajax(
 				$link.data('href'),
-				{ oldest_date: $news.data('oldestDate'), forum_id: $news.data('forumid'), filter: $news.data('filter') },
+				{ oldest_date: $news.data('oldestdate'), forum_id: $news.data('forumid'), filter: $news.data('filter') },
 				function (ajaxData, textStatus)
 				{
 					if (XenForo.hasTemplateHtml(ajaxData, 'newsTemplateHtml'))
@@ -114,8 +114,8 @@
 						new XenForo.ExtLoader(ajaxData, function()
 						{
 							var i=0,
-							oldestDate=(ajaxData.oldestDate || 0),
-							findOldestDate=!!oldestDate, //true if we have to find oldestDate ourself
+							oldestdate=(ajaxData.oldestdate || 0),
+							findoldestdate=!!oldestdate, //true if we have to find oldestdate ourself
 							ajaxBlogTitle=ajaxData.title,
 							curScroll=$(window).scrollTop();
 
@@ -123,14 +123,14 @@
 							{
 								var $addNews=$(templateHtml);
 								$addNews.xfInsert('appendTo', $news);
-								if (findOldestDate)
+								if (findoldestdate)
 								{
-									oldestDate = $addNews.last().find('a.datePermalink').data('time');
+									oldestdate = $addNews.last().find('a.datePermalink').data('time');
 								}
 								i++;
 							});
 							$(window).scrollTop(curScroll);
-							if (oldestDate) $news.data('oldestDate',oldestDate);
+							if (oldestdate) $news.data('oldestdate',oldestdate);
 							if (!i && !$link.data('reload')){$link.hide();}
 							document.title=(ajaxBlogTitle) ? (ajaxBlogTitle+' | '+$title.data('original')):$title.data('original');
 							$h1.html((ajaxBlogTitle) ? ajaxBlogTitle : $h1.data('original'));
@@ -148,8 +148,8 @@
 								var curScroll=$(window).scrollTop();
 								$addNews.xfInsert('appendTo', $news);
 								$(window).scrollTop(curScroll);
-								var oldestDate = $addNews.last().find('a.datePermalink').data('time');
-								if (oldestDate) $news.data('oldestDate',oldestDate);
+								var oldestdate = $addNews.last().find('a.datePermalink').data('time');
+								if (oldestdate) $news.data('oldestdate',oldestdate);
 							}
 							else if (!$link.data('reload')) {$link.hide();}
 							document.title=(ajaxBlogTitle) ? (ajaxBlogTitle+' | '+$title.data('original')):$title.data('original');

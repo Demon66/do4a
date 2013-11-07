@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Russian (RU)" date_format="j M Y" time_format="H:i" decimal_point="," thousands_separator="." language_code="ru-RU" text_direction="LTR" addon_id="Social">
+  <phrase title="news_feed_blog_post_insert" addon_id="Social" version_id="1" version_string=""><![CDATA[{username} оставил(а) комментарий в топике {threadTitle}.]]></phrase>
+  <phrase title="news_feed_blog_post_insert_attachment" addon_id="Social" version_id="1" version_string=""><![CDATA[{username} добавил(а) вложение в топике {threadTitle}.]]></phrase>
+  <phrase title="news_feed_blog_thread_insert" addon_id="Social" version_id="1" version_string=""><![CDATA[{username} написал(а) новую статью.]]></phrase>
+  <phrase title="replaced_phrase_all_forums" addon_id="Social" version_id="1" version_string=""><![CDATA[Все разделы]]></phrase>
+  <phrase title="replaced_phrase_display_results_as_threads" addon_id="Social" version_id="1" version_string=""><![CDATA[Отображать результаты в виде топиков]]></phrase>
+  <phrase title="replaced_phrase_find_all_threads_by_x" addon_id="Social" version_id="1" version_string=""><![CDATA[Найти все топики, созданные {name}]]></phrase>
+  <phrase title="replaced_phrase_search_in_forums" addon_id="Social" version_id="1" version_string=""><![CDATA[Искать в разделах]]></phrase>
+  <phrase title="replaced_phrase_search_threads_and_posts" addon_id="Social" version_id="1" version_string=""><![CDATA[Искать публикации и сообщения]]></phrase>
+  <phrase title="replaced_phrase_search_threads_started_by_this_member_only" addon_id="Social" version_id="1" version_string=""><![CDATA[Искать топики, созданные этим пользователем]]></phrase>
+  <phrase title="social_all_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Все новости]]></phrase>
+  <phrase title="social_best_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Лучшие новости]]></phrase>
+  <phrase title="social_blog" addon_id="Social" version_id="1" version_string=""><![CDATA[Блог]]></phrase>
+  <phrase title="social_blogs" addon_id="Social" version_id="1" version_string=""><![CDATA[Блоги]]></phrase>
+  <phrase title="social_blog_entry" addon_id="Social" version_id="1" version_string=""><![CDATA[Статья]]></phrase>
+  <phrase title="social_blog_entry_by" addon_id="Social" version_id="1" version_string=""><![CDATA[Автор статьи]]></phrase>
+  <phrase title="social_blog_post" addon_id="Social" version_id="1" version_string=""><![CDATA[Комментарий]]></phrase>
+  <phrase title="social_cancel_promotion" addon_id="Social" version_id="1" version_string=""><![CDATA[Отменить вывод новости]]></phrase>
+  <phrase title="social_choose_node" addon_id="Social" version_id="1" version_string=""><![CDATA[Выберите раздел]]></phrase>
+  <phrase title="social_comments" addon_id="Social" version_id="1" version_string=""><![CDATA[Комментарии]]></phrase>
+  <phrase title="social_comment_by" addon_id="Social" version_id="1" version_string=""><![CDATA[Комментарий от]]></phrase>
+  <phrase title="social_create_new_blog_entry" addon_id="Social" version_id="1" version_string=""><![CDATA[Написать статью]]></phrase>
+  <phrase title="social_home" addon_id="Social" version_id="1" version_string=""><![CDATA[Главная]]></phrase>
+  <phrase title="social_in_blog" addon_id="Social" version_id="1" version_string=""><![CDATA[в блоге]]></phrase>
+  <phrase title="social_latest_blog_entries" addon_id="Social" version_id="1" version_string=""><![CDATA[Последние статьи]]></phrase>
+  <phrase title="social_latest_blog_entries_from_current" addon_id="Social" version_id="1" version_string=""><![CDATA[Статьи из этого блога]]></phrase>
+  <phrase title="social_latest_forum_threads" addon_id="Social" version_id="1" version_string=""><![CDATA[Последние темы на форуме]]></phrase>
+  <phrase title="social_latest_forum_threads_from_current" addon_id="Social" version_id="1" version_string=""><![CDATA[Темы из этого форума]]></phrase>
+  <phrase title="social_latest_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Последние новости]]></phrase>
+  <phrase title="social_navigation" addon_id="Social" version_id="1" version_string=""><![CDATA[Навигация]]></phrase>
+  <phrase title="social_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Новости]]></phrase>
+  <phrase title="social_news_forums_list" addon_id="Social" version_id="1" version_string=""><![CDATA[Новостные разделы]]></phrase>
+  <phrase title="social_promote_thread" addon_id="Social" version_id="1" version_string=""><![CDATA[Вывести в раздел новостей]]></phrase>
+  <phrase title="social_reading_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Читает новости]]></phrase>
+  <phrase title="social_read_all_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Все новости →]]></phrase>
+  <phrase title="social_read_more" addon_id="Social" version_id="1" version_string=""><![CDATA[Читать далее]]></phrase>
+  <phrase title="social_read_more_news" addon_id="Social" version_id="1" version_string=""><![CDATA[Предыдущие новости ↓]]></phrase>
+  <phrase title="social_reply_to_comment_of_x" addon_id="Social" version_id="1" version_string=""><![CDATA[Ответить на комментарий {user}]]></phrase>
+  <phrase title="social_x_liked_your_blog_post_in_the_thread_y" addon_id="Social" version_id="1" version_string=""><![CDATA[{name} нравится Ваше сообщение в топике {title}.]]></phrase>
+  <phrase title="social_x_liked_ys_blog_post_in_the_thread_z" addon_id="Social" version_id="1" version_string=""><![CDATA[{name} нравится <a {posterParams}>сообщение {poster}</a> в топике {title}.]]></phrase>
+</language>

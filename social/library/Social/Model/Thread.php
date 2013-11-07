@@ -28,7 +28,7 @@ class Social_Model_Thread extends XFCP_Social_Model_Thread
         }
 
 		if (!empty($conditions['promoted'])) {
-			$sqlConditions[] = 'thread.promotion_date >= 0';
+			$sqlConditions[] = 'thread.promotion_date > 0';
 		}
 
 		return $this->getConditionsForClause($sqlConditions);

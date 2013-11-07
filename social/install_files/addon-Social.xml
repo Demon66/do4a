@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Social" title="Social" version_string="" version_id="1" url="" install_callback_class="Social_Manufacture" install_callback_method="build" uninstall_callback_class="Social_Manufacture" uninstall_callback_method="destroy">
+<addon addon_id="Social" title="Social" version_string="1.0" version_id="2" url="" install_callback_class="Social_Manufacture" install_callback_method="build" uninstall_callback_class="Social_Manufacture" uninstall_callback_method="destroy">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -51,24 +51,26 @@
 </li>]]></template>
     <template title="social_admin_forum_edit_tab"><![CDATA[<li><a>{xen:phrase social_forum_options}</a></li>]]></template>
   </admin_templates>
+  <admin_template_modifications/>
   <code_events/>
   <code_event_listeners>
-    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="Social_EventListener_Static" callback_method="controllerPreDispatch" active="1" description=""/>
-    <listener event_id="front_controller_pre_view" execute_order="10" callback_class="Social_EventListener_Static" callback_method="frontControllerPreView" active="1" description=""/>
-    <listener event_id="init_dependencies" execute_order="10" callback_class="Social_EventListener_Static" callback_method="initDependencies" active="1" description=""/>
-    <listener event_id="load_class_bb_code" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassBbCode" active="1" description=""/>
-    <listener event_id="load_class_controller" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassController" active="1" description=""/>
-    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassDataWriter" active="1" description=""/>
-    <listener event_id="load_class_model" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassModel" active="1" description=""/>
-    <listener event_id="load_class_route_prefix" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassRoutePrefix" active="1" description=""/>
-    <listener event_id="load_class_search_data" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassSearchData" active="1" description=""/>
-    <listener event_id="load_class_view" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassView" active="1" description=""/>
-    <listener event_id="navigation_tabs" execute_order="10" callback_class="Social_EventListener_Template" callback_method="navigationTabs" active="1" description=""/>
-    <listener event_id="template_create" execute_order="10" callback_class="Social_EventListener_Template" callback_method="templateCreate" active="1" description=""/>
-    <listener event_id="template_hook" execute_order="10" callback_class="Social_EventListener_Template" callback_method="templateHook" active="1" description=""/>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="Social_EventListener_Static" callback_method="controllerPreDispatch" active="1" hint="" description=""/>
+    <listener event_id="front_controller_pre_view" execute_order="10" callback_class="Social_EventListener_Static" callback_method="frontControllerPreView" active="1" hint="" description=""/>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="Social_EventListener_Static" callback_method="initDependencies" active="1" hint="" description=""/>
+    <listener event_id="load_class_bb_code" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassBbCode" active="1" hint="" description=""/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassController" active="1" hint="" description=""/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassDataWriter" active="1" hint="" description=""/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassModel" active="1" hint="" description=""/>
+    <listener event_id="load_class_route_prefix" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassRoutePrefix" active="1" hint="" description=""/>
+    <listener event_id="load_class_search_data" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassSearchData" active="1" hint="" description=""/>
+    <listener event_id="load_class_view" execute_order="10" callback_class="Social_EventListener_Extend" callback_method="loadClassView" active="1" hint="" description=""/>
+    <listener event_id="navigation_tabs" execute_order="10" callback_class="Social_EventListener_Template" callback_method="navigationTabs" active="1" hint="" description=""/>
+    <listener event_id="template_create" execute_order="10" callback_class="Social_EventListener_Template" callback_method="templateCreate" active="1" hint="" description=""/>
+    <listener event_id="template_hook" execute_order="10" callback_class="Social_EventListener_Template" callback_method="templateHook" active="1" hint="" description=""/>
   </code_event_listeners>
   <cron/>
   <email_templates/>
+  <email_template_modifications/>
   <optiongroups>
     <group group_id="SocialBlogs" display_order="2" debug_only="0"/>
     <group group_id="SocialNews" display_order="1" debug_only="0"/>
@@ -212,7 +214,9 @@ max=30</edit_format_params>
   </optiongroups>
   <permissions>
     <permission_groups/>
-    <permissions/>
+    <permissions>
+      <permission permission_group_id="forum" permission_id="socialPromoteThread" permission_type="flag" default_value="unset" interface_group_id="forumPermissions" display_order="1"/>
+    </permissions>
     <interface_groups/>
   </permissions>
   <phrases>
@@ -220,51 +224,52 @@ max=30</edit_format_params>
     <phrase title="news_feed_blog_post_insert_attachment" version_id="1" version_string=""><![CDATA[{username} attached a file to the blog entry {threadTitle}.]]></phrase>
     <phrase title="news_feed_blog_thread_insert" version_id="1" version_string=""><![CDATA[{username} posted a new blog entry.]]></phrase>
     <phrase title="option_group_SocialBlogs" version_id="1" version_string=""><![CDATA[[Social] Blogs Options]]></phrase>
-    <phrase title="option_group_SocialBlogs_description" version_id="1" version_string=""></phrase>
+    <phrase title="option_group_SocialBlogs_description" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_group_SocialNews" version_id="1" version_string=""><![CDATA[[Social] News Options]]></phrase>
-    <phrase title="option_group_SocialNews_description" version_id="1" version_string=""></phrase>
+    <phrase title="option_group_SocialNews_description" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_group_socialOptions" version_id="1" version_string=""><![CDATA[Blog Options]]></phrase>
     <phrase title="option_group_socialOptions_description" version_id="1" version_string=""><![CDATA[Options here control the display of elements within the blog.]]></phrase>
     <phrase title="option_socialAutoCenterMedia" version_id="1" version_string=""><![CDATA[Autocentering images and media]]></phrase>
-    <phrase title="option_socialAutoCenterMedia_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialAutoCenterMedia_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialBestNewsMinLikes" version_id="1" version_string=""><![CDATA[Minimum likes for best news]]></phrase>
-    <phrase title="option_socialBestNewsMinLikes_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialBestNewsMinLikes_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialBlogActive" version_id="1" version_string=""><![CDATA[Blogs module is active]]></phrase>
-    <phrase title="option_socialBlogActive_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialBlogActive_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialBlogRoot" version_id="1" version_string=""><![CDATA[Blogs Container]]></phrase>
-    <phrase title="option_socialBlogRoot_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialBlogRoot_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialCommentsPerPage" version_id="1" version_string=""><![CDATA[Comments Per Page]]></phrase>
     <phrase title="option_socialCommentsPerPage_explain" version_id="1" version_string=""><![CDATA[Amount of comments displayed at a time when viewing a blog thread.]]></phrase>
     <phrase title="option_socialCutAuto" version_id="1" version_string=""><![CDATA[Simbols for auto cut news]]></phrase>
-    <phrase title="option_socialCutAuto_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialCutAuto_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialFollowingThreadLimit" version_id="1" version_string=""><![CDATA[Recent Following Thread Limit]]></phrase>
     <phrase title="option_socialFollowingThreadLimit_explain" version_id="1" version_string=""><![CDATA[Controls the number of threads that are displayed if a user is following users who have posted blog threads.]]></phrase>
     <phrase title="option_socialGeneralDisplayLocations" version_id="1" version_string=""><![CDATA[General Display Locations]]></phrase>
     <phrase title="option_socialGeneralDisplayLocations_explain" version_id="1" version_string=""><![CDATA[Select available locations you want information to appear that is outside of the blogging area.]]></phrase>
     <phrase title="option_socialMaxMediaInNews" version_id="1" version_string=""><![CDATA[Max media in one news item]]></phrase>
-    <phrase title="option_socialMaxMediaInNews_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialMaxMediaInNews_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialMaxPromotionAge" version_id="1" version_string=""><![CDATA[Time for promotion (Hours)]]></phrase>
-    <phrase title="option_socialMaxPromotionAge_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialMaxPromotionAge_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialMoreFromUserLimit" version_id="1" version_string=""><![CDATA[More Threads From User Limit]]></phrase>
     <phrase title="option_socialMoreFromUserLimit_explain" version_id="1" version_string=""><![CDATA[Limits how many threads are listed in the sidebar when viewing a blog thread.]]></phrase>
     <phrase title="option_socialNewsActive" version_id="1" version_string=""><![CDATA[News module is active]]></phrase>
-    <phrase title="option_socialNewsActive_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsActive_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialNewsDescription" version_id="1" version_string=""><![CDATA[News Description]]></phrase>
-    <phrase title="option_socialNewsDescription_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsDescription_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialNewsIndex" version_id="1" version_string=""><![CDATA[Set news as homepage]]></phrase>
-    <phrase title="option_socialNewsIndex_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsIndex_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialNewsPerPage" version_id="1" version_string=""><![CDATA[News per page]]></phrase>
-    <phrase title="option_socialNewsPerPage_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsPerPage_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialNewsTitle" version_id="1" version_string=""><![CDATA[News Title]]></phrase>
-    <phrase title="option_socialNewsTitle_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialNewsTitle_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialPersonalBlogRoot" version_id="1" version_string=""><![CDATA[Personal Blogs Container]]></phrase>
-    <phrase title="option_socialPersonalBlogRoot_explain" version_id="1" version_string=""></phrase>
+    <phrase title="option_socialPersonalBlogRoot_explain" version_id="1" version_string=""><![CDATA[]]></phrase>
     <phrase title="option_socialPreviewLength" version_id="1" version_string=""><![CDATA[Thread Preview Length]]></phrase>
     <phrase title="option_socialPreviewLength_explain" version_id="1" version_string=""><![CDATA[The length of text displayed as a preview when you hover over blog titles or when you view a user's blog page.]]></phrase>
     <phrase title="option_socialRecentCommentLimit" version_id="1" version_string=""><![CDATA[Recent Comment Limit]]></phrase>
     <phrase title="option_socialRecentCommentLimit_explain" version_id="1" version_string=""><![CDATA[Controls how many recent comment links are displayed.]]></phrase>
     <phrase title="option_socialThreadsPerPage" version_id="1" version_string=""><![CDATA[Threads Per Page]]></phrase>
     <phrase title="option_socialThreadsPerPage_explain" version_id="1" version_string=""><![CDATA[Limit the number of threads displayed per page on the blog home and on a user's blog.]]></phrase>
+    <phrase title="permission_forum_socialPromoteThread" version_id="1" version_string=""><![CDATA[Can Promote Threads]]></phrase>
     <phrase title="replaced_phrase_all_forums" version_id="1" version_string=""><![CDATA[All Sections]]></phrase>
     <phrase title="replaced_phrase_display_results_as_threads" version_id="1" version_string=""><![CDATA[Display results as discussions]]></phrase>
     <phrase title="replaced_phrase_find_all_threads_by_x" version_id="1" version_string=""><![CDATA[Find all discussions started by {name}]]></phrase>
@@ -423,7 +428,7 @@ max=30</edit_format_params>
 	</div>
 
 </li>]]></template>
-    <template title="social.css" version_id="1" version_string=""></template>
+    <template title="social.css" version_id="1" version_string=""><![CDATA[]]></template>
     <template title="social_comment.css" version_id="1" version_string=""><![CDATA[.comments.children
 {
 	padding-left: 25px;
@@ -949,7 +954,6 @@ max=30</edit_format_params>
 <!-- end block: sidebar_online_staff -->]]></template>
     <template title="social_sidebar_posts" version_id="1" version_string=""><![CDATA[<xen:edithint template="sidebar.css" />
 <xen:require css="social_sidebar_posts.css" />
-
 <div class="section latestPosts">
     <div class="secondaryContent">
         <h3>{$widgetTitle}</h3>
@@ -1137,5 +1141,6 @@ body .sidebar .section.latestPosts .secondaryContent ol li .footnote
     <template title="widgets_sidebar" version_id="1" version_string=""><![CDATA[111<xen:hook name="widgets_sidebar">11
 </xen:hook>]]></template>
   </templates>
+  <public_template_modifications/>
   <bb_code_media_sites/>
 </addon>

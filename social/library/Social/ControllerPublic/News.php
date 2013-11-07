@@ -4,7 +4,7 @@ class Social_ControllerPublic_News extends XenForo_ControllerPublic_Abstract
 {
 	public function actionIndex()
 	{
-		$visitor = XenForo_Visitor::getInstance();
+        $visitor = XenForo_Visitor::getInstance();
 		$options = XenForo_Application::get('options');
 		$action = $this->_routeMatch->getMinorSection();
 		$oldestDate = $this->_input->filterSingle('oldest_date', XenForo_Input::DATE_TIME);
@@ -34,7 +34,6 @@ class Social_ControllerPublic_News extends XenForo_ControllerPublic_Abstract
         {
             case 'latest':
                 $fetchOptions['order']='post_date';
-                $conditions['news_source'] = 1;
                 $conditions['max_post_date'] = $oldestDate;
                 $conditions['news_source'] = 1;
                 break;
