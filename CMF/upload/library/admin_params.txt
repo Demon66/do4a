@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html id="XenForo" lang="ru-RU" dir="LTR" class="Public LoggedOut Sidebar" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+
+	<meta charset="utf-8" />
+	
+		<base href="http://do4a.com/" />
+		<script>
+			var _b = document.getElementsByTagName('base')[0], _bH = "http://do4a.com/";
+			if (_b && _b.href != _bH) _b.href = _bH;
+		</script>
+	
+
+	<title>Новости | do4a.com - второе дыхание</title>
+	
+	<noscript><style>.JsOnly { display: none !important; }</style></noscript>
+	<link rel="stylesheet" href="css.php?css=xenforo,form,public&amp;style=2&amp;dir=LTR&amp;d=1370571427" />
+	<link rel="stylesheet" href="css.php?css=discussion_list,do4a,facebook,login_bar,message,message_user_info,sidebar_share_page,social_news,social_sidebar_posts&amp;style=2&amp;dir=LTR&amp;d=1370571427" />
+	
+	
+
+	<script>
+
+	var _gaq = [['_setAccount', 'UA-30116973-1'], ['_trackPageview']];
+	!function(d, t)
+	{
+		var g = d.createElement(t),
+			s = d.getElementsByTagName(t)[0];	
+		g.async = true;
+		g.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g, s);
+	}
+	(document, 'script');
+
+	</script>
+		<script src="js/jquery/jquery-1.5.2.min.js"></script>	
+		
+	<script src="js/xenforo/xenforo.js?_v=3067a8be"></script>
+	<script src="js/social/news.js?_v=3067a8be"></script>
+
+	
+	<link rel="alternate" type="application/rss+xml" title="RSS лента для do4a.com - второе дыхание" href="forums/-/index.rss" />
+	<meta name="description" content="Новостная лента портала" />
+	
+
+ <LINK REL="SHORTCUT ICON" HREF="http://do4a.com/favicon.ico">
+</head>
+
+<body>
+
+
+
+	
+
+<div id="loginBar">
+	<div class="pageWidth">
+		<div class="pageContent">	
+			<h3 id="loginBarHandle">
+				<label for="LoginControl"><a href="login/" class="concealed noOutline">Войти или зарегистрироваться</a></label>
+			</h3>
+			
+			<span class="helper"></span>
+
+			
+		</div>
+	</div>
+</div>
+
+
+<div id="headerMover">
+	<div id="headerProxy"></div>
+<header>
+	
+<div id="header">
+	<div id="logoBlock">
+	<div class="pageWidth">
+		<div class="pageContent">
+			
+			
+			<div id="logo"><a href="http://do4a.com">
+				<span></span>
+				<img src="styles/default/do4a/logo.png" alt="do4a.com - второе дыхание" />
+			</a></div>
+			
+			<span class="helper"></span>
+		</div>
+	</div>
+</div>
+	
+
+<div id="navigation" class="pageWidth">
+	<div class="pageContent">
+		<nav>
+
+<div class="navTabs">
+	<ul class="publicTabs">
+	
+		<!-- home -->
+		
+		
+		
+		<!-- extra tabs: home -->
+		
+		
+			
+				<li class="navTab news selected">
+			
+				<a href="." class="navLink">Главная</a>
+				<a href="." class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="tabLinks newsTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>Главная</h3>
+						<div class="muted">Быстрые ссылки</div>
+					</div>
+					
+	<ul class="secondaryContent blockLinksList">
+<li><a href="?filter=top" data-href="?filter=top" class="NewsLoader filter" data-filter="top" data-target="#NewsList" data-reload="filter" data-count="10">Главные новости</a></li>
+<li><a href="?filter=latest" data-href="?filter=latest" class="NewsLoader filter" data-filter="latest" data-target="#NewsList" data-reload="filter" data-count="10">Последние новости</a></li>
+<li><a href="find-new/threads">Новые сообщения</a></li>
+
+</ul>
+
+				</div>
+			</li>
+			
+		
+		
+		
+		
+		<!-- forums -->
+		
+			<li class="navTab forums Popup PopupControl PopupClosed">
+			
+				<a href="http://do4a.com/forums/" class="navLink">Форум</a>
+				<a href="http://do4a.com/forums/" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="Menu JsOnly tabMenu forumsTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>Форум</h3>
+						<div class="muted">Быстрые ссылки</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					
+						
+						<li><a href="search/?type=post">Поиск сообщений</a></li>
+						
+						<li><a href="find-new/threads" rel="nofollow">Новые сообщения</a></li>
+					<li><a href="popular/">Популярное</a></li>
+					</ul>
+				</div>
+			</li>
+		
+		
+		
+		<!-- extra tabs: middle -->
+		
+		
+			
+				<li class="navTab blogs PopupClosed">
+					<a href="blogs/" class="navLink">Блоги</a>
+					
+				</li>
+			
+		
+		
+		
+		
+		<!-- members -->
+		
+			<li class="navTab members Popup PopupControl PopupClosed">
+			
+				<a href="http://do4a.com/members/" class="navLink">Пользователи</a>
+				<a href="http://do4a.com/members/" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="Menu JsOnly tabMenu membersTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>Пользователи</h3>
+						<div class="muted">Быстрые ссылки</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					
+						<li><a href="members/">Зарегистрированные пользователи</a></li>
+						<li><a href="online/">Сейчас на форуме</a></li>
+						<li><a href="recent-activity/">Последняя активность</a></li>
+					
+					</ul>
+				</div>
+			</li>
+				
+		
+		<!-- help -->
+		
+			<li class="navTab help Popup PopupControl PopupClosed">
+			
+				<a href="http://do4a.com/help/" class="navLink" rel="help">Помощь</a>
+				<a href="http://do4a.com/help/" class="SplitCtrl" rel="Menu"></a>
+				
+				<div class="Menu JsOnly tabMenu helpTabLinks">
+					<div class="primaryContent menuHeader">
+						<h3>Помощь</h3>
+						<div class="muted">Быстрые ссылки</div>
+					</div>
+					<ul class="secondaryContent blockLinksList">
+					
+						<li><a href="help/smilies">Смайлы</a></li>
+						<li><a href="help/bb-codes">BB-коды</a></li>
+						<li><a href="help/trophies">Трофеи</a></li>
+						<li><a href="help/cookies">Использование файлов cookie</a></li>
+					<li><a href="help/medals">Medals</a></li><li><a href="help/staff-list">Staff List</a></li>
+					</ul>
+				</div>
+			</li>
+		
+		
+		
+		<!-- extra tabs: end -->
+		
+		
+			
+				<li class="navTab XenFansPopularTab PopupClosed">
+					<a href="popular/" class="navLink">Популярное</a>
+					
+				</li>
+			
+		
+		
+		
+		
+		<li class="navTab home PopupClosed"><a target="_blank" href="http://vk.com/album-26456494_143810966" class="navLink">Магазин</a></li>
+<li class="navTab home PopupClosed"><a target="_blank" href="http://vk.com/peptitts" class="navLink">Пептиды</a></li>
+<!-- no selection -->
+		
+		
+	</ul>
+	
+	
+</div>
+
+<span class="helper"></span>
+			
+		</nav>	
+	</div>
+</div>
+	
+
+<div id="searchBar" class="pageWidth">
+	
+	<fieldset id="QuickSearch">
+		<form action="search/search" method="post" class="formPopup">
+			
+			<div class="primaryControls">
+				<!-- block: primaryControls -->
+				<input type="search" name="keywords" value="" class="textCtrl" placeholder="Поиск..." results="0" title="Введите параметры поиска и нажмите ввод" id="QuickSearchQuery" />				
+				<!-- end block: primaryControls -->
+			</div>
+			
+			<div class="secondaryControls">
+				<div class="controlsWrapper">
+				
+					<!-- block: secondaryControls -->
+					<dl class="ctrlUnit">
+						<dt></dt>
+						<dd><ul>
+							<li><label><input type="checkbox" name="title_only" value="1"
+								id="search_bar_title_only" class="AutoChecker"
+								data-uncheck="#search_bar_thread" /> Искать только в заголовках</label></li>
+						</ul></dd>
+					</dl>
+				
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_users">Сообщения пользователя:</label></dt>
+						<dd>
+							<input type="text" name="users" value="" class="textCtrl AutoComplete" id="searchBar_users" />
+							<p class="explain">Имена участников (разделяйте запятой).</p>
+						</dd>
+					</dl>
+				
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_date">Новее чем:</label></dt>
+						<dd><input type="date" name="date" value="" class="textCtrl" id="searchBar_date" /></dd>
+					</dl>
+					
+					
+				</div>
+				<!-- end block: secondaryControls -->
+				
+				<dl class="ctrlUnit submitUnit">
+					<dt></dt>
+					<dd>
+						<input type="submit" value="Поиск" class="button primary Tooltip" title="Искать" />
+						<div class="Popup" id="commonSearches">
+							<a rel="Menu" class="button NoPopupGadget Tooltip" title="Быстрый поиск" data-tipclass="flipped"><span class="arrowWidget"></span></a>
+							<div class="Menu">
+								<div class="primaryContent menuHeader">
+									<h3>Быстрый поиск</h3>
+								</div>
+								<ul class="secondaryContent blockLinksList">
+									<!-- block: useful_searches -->
+									<li><a href="find-new/threads?recent=1" rel="nofollow">Последние темы</a></li>
+									
+									<!-- end block: useful_searches -->
+								</ul>
+							</div>
+						</div>
+						<a href="search/" class="button moreOptions Tooltip" title="Расширенный поиск">Больше...</a>
+					</dd>
+				</dl>
+				
+			</div>
+			
+			<input type="hidden" name="_xfToken" value="" />
+		</form>		
+	</fieldset>
+	
+</div>
+</div>
+
+	
+	
+</header>
+
+<div id="content" class="social_news">
+	<div class="pageWidth">
+		<div class="pageContent">
+			<!-- main content area -->
+			
+			
+			
+			
+				<div class="mainContainer">
+					<div class="mainContent">
+						
+						
+						
+						
+						<div class="breadBoxTop">
+							
+							
+
+<nav>
+	
+
+	<fieldset class="breadcrumb">
+		<a href="misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheOverlay="true" title="Открыть быструю навигацию"><!--Перейти к...--></a>
+			
+		<div class="boardTitle"><strong>do4a.com - второе дыхание</strong></div>
+		
+		<span class="crumbs">
+			
+			
+			
+				<span class="crust" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+					<a href="." class="crumb" rel="up" itemprop="url"><span itemprop="title">Главная</span></a>
+					<span class="arrow"><span>&gt;</span></span>
+				</span>
+			
+			
+			
+		</span>
+	</fieldset>
+</nav>
+						</div>
+						
+						
+						
+					
+						
+												
+						
+						
+						
+												
+							<!-- h1 title, description -->
+							<div class="titleBar">
+								
+								<h1>Новости</h1>
+								
+								<p id="pageDescription" class="muted ">Новостная лента портала</p>
+							</div>
+						
+						
+						
+						
+						
+						<!-- main template -->
+						
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sectionMain" id="NewsList" data-forumid="0">
+	
+		<div id="post-444510" class="message" data-author="physik">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="blogs/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%86%D0%B8%D1%8F.30/">Мотивация</a>»</div><a href="threads/real-motivation.10118/">real motivation</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/physik.16215/" class="avatar Av16215m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/16/16215.jpg?1358191976')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			великолепно мотивирующий ролик от Александра Невского, Вадима Шлахтера и других культовых спортсменов.<br />
+<div style="text-align: center"><iframe width="500" height="300" src="http://www.youtube.com/embed/9phYL1bj3NQ?wmode=opaque" frameborder="0" allowfullscreen></iframe></div>
+			<div class="readMore">
+				<a href="threads/real-motivation.10118/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/physik.16215/" class="author username">physik</a>,
+				<a href="threads/real-motivation.10118/" title="Постоянная ссылка" class="datePermalink" data-time="1371030238"><abbr class="DateTime" data-time="1371030238" data-diff="118250" data-datestring="12 июн 2013" data-timestring="10:43">12 июн 2013 в 10:43</abbr></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/real-motivation.10118/" class="item control">Ответов: 58</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-443509" class="message" data-author="Punisher_Aleks">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="blogs/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%86%D0%B8%D1%8F.30/">Мотивация</a>»</div><a href="threads/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-do4a-com.10110/">Рисунок для Do4a.com</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/punisher_aleks.16738/" class="avatar Av16738m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/16/16738.jpg?1357563216')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			<div style="text-align: center"><iframe width="500" height="300" src="http://www.youtube.com/embed/a_nA2o1e-ok?wmode=opaque" frameborder="0" allowfullscreen></iframe></div>
+			<div class="readMore">
+				<a href="threads/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-do4a-com.10110/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/punisher_aleks.16738/" class="author username">Punisher_Aleks</a>,
+				<a href="threads/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-do4a-com.10110/" title="Постоянная ссылка" class="datePermalink" data-time="1370955282"><abbr class="DateTime" data-time="1370955282" data-diff="193206" data-datestring="11 июн 2013" data-timestring="13:54">11 июн 2013 в 13:54</abbr></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%A0%D0%B8%D1%81%D1%83%D0%BD%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-do4a-com.10110/" class="item control">Ответов: 52</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-442988" class="message" data-author="cmzmozg">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="user-blogs/">Персональные блоги</a>»</div><a href="threads/%D0%9E%D1%82%D0%B4%D1%8B%D1%85.10106/">Отдых</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/cmzmozg.2405/" class="avatar Av2405m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/2/2405.jpg?1356594051')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			Прошло больше 2х месяцев спустя последних стартов, изначально было желание сохранить побольше мяса следить за питанием и так далее. Первый месяц после соревнований я так и делал. Далее состоялся разговор с тренером о том, что надо отдохнуть в первую очередь не физически, а головой.<br />
+Действительно у меня было 3 подготовки подряд (прошлой осенью не вышел на сцену из за абсцесса, вы помните) 3 сушки 2 набора, диета, режим 6 тренировок в неделю, к тому же готовка и работа. Всё это очень выматывает, вы знаете.<br />
+Сейчас я уже 3 недели питаюсь 3-4 раза в день, не думаю по поводу калорий, жиров, белков и углеводов. Могу позволить посидеть в баре с друзьями и выпить по пиву, тренируюсь 3 раза в неделю. И вы знаете, иногда здорово побыть обычным человеком =)<br />
+Теперь о планах, через 1.5 недели я уезжаю в отпуск на Байкал, возвращаюсь 6 июля и с 8 числа начинаются увлекательные 42 недели подготовки (22 недели набора и 20 сушки). Всё это естественно я буду максимально подробно освещать на данном...
+			<div class="readMore">
+				<a href="threads/%D0%9E%D1%82%D0%B4%D1%8B%D1%85.10106/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/cmzmozg.2405/" class="author username">cmzmozg</a>,
+				<a href="threads/%D0%9E%D1%82%D0%B4%D1%8B%D1%85.10106/" title="Постоянная ссылка" class="datePermalink" data-time="1370923988"><abbr class="DateTime" data-time="1370923988" data-diff="224500" data-datestring="11 июн 2013" data-timestring="05:13">11 июн 2013 в 05:13</abbr></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%9E%D1%82%D0%B4%D1%8B%D1%85.10106/" class="item control">Ответов: 59</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-441818" class="message" data-author="Коля Антиген">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="forums/%D0%94%D0%B5%D0%B1%D0%B8%D0%BB%D0%B4%D0%B8%D0%BD%D0%B3-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%8B.15/">Дебилдинг (вопросы-ответы)</a>»</div><a href="threads/%D0%A0%D0%B0%D1%81%D1%82%D1%8F%D0%B6%D0%BA%D0%B0-%D0%B8-%D0%B5%D0%B5-%D1%80%D0%BE%D0%BB%D1%8C-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81.10096/">Растяжка и ее роль (+ мелкий конкурс)</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/%D0%9A%D0%BE%D0%BB%D1%8F-%D0%90%D0%BD%D1%82%D0%B8%D0%B3%D0%B5%D0%BD.6317/" class="avatar Av6317m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/6/6317.jpg?1344646747')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			Замотивированный грациозной техникой фронтальных приседаний Клокова:<br />
+<div style="text-align: center"><iframe width="500" height="300" src="http://www.youtube.com/embed/FLVxmMQLAg0?wmode=opaque" frameborder="0" allowfullscreen></iframe></div><br />
+я решил освоить именно ее и стал изучать комплексные основы его подготовки. Найдя информацию о технике этого седа, появились ответы, почему растяжка так важна в тяжело-атлетической подготовке и занимает у Дмитрия особое внимание. Смотрим на феноменально-стабильное положение его таза. Оказывается, именно она и делает движение более эффективным, значительно увеличивая равновесие, предотвращая травмы и растяжения, а главное — отвечает за положение таза и низа спины. Как выяснилось у нас в США есть даже специальные <span style="text-decoration: underline"><a href="http://squatrx.blogspot.com/2013/04/workshop-for-swimmers-and-coaches.html" target="_blank" class="externalLink" rel="nofollow">курсы</a></span> заточенные под это дело, да и вообще... было бы очень странно, если бы тут их не было...<br />
+ <br />
+<b>Садитесь ли вы на шпагат?</b><br />
+<b>Достаете ли до пола на прямых?</b><br />
+<b>Как учились и остались ли навыки? (вознаграждение за лучший ответ)</b><br />
+<b>Каков рекорд <span style="text-decoration: underline">во фронтальном</span>...</b>
+			<div class="readMore">
+				<a href="threads/%D0%A0%D0%B0%D1%81%D1%82%D1%8F%D0%B6%D0%BA%D0%B0-%D0%B8-%D0%B5%D0%B5-%D1%80%D0%BE%D0%BB%D1%8C-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81.10096/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/%D0%9A%D0%BE%D0%BB%D1%8F-%D0%90%D0%BD%D1%82%D0%B8%D0%B3%D0%B5%D0%BD.6317/" class="author username">Коля Антиген</a>,
+				<a href="threads/%D0%A0%D0%B0%D1%81%D1%82%D1%8F%D0%B6%D0%BA%D0%B0-%D0%B8-%D0%B5%D0%B5-%D1%80%D0%BE%D0%BB%D1%8C-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81.10096/" title="Постоянная ссылка" class="datePermalink" data-time="1370825179"><abbr class="DateTime" data-time="1370825179" data-diff="323309" data-datestring="10 июн 2013" data-timestring="01:46">10 июн 2013 в 01:46</abbr></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%A0%D0%B0%D1%81%D1%82%D1%8F%D0%B6%D0%BA%D0%B0-%D0%B8-%D0%B5%D0%B5-%D1%80%D0%BE%D0%BB%D1%8C-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81.10096/" class="item control">Ответов: 34</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-440926" class="message" data-author="Do4a">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="blogs/%D0%92%D0%B0%D1%88%D0%B8-%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-%D0%B4%D0%BE-%D0%B8-%D0%BF%D0%BE%D1%81%D0%BB%D0%B5.57/">Ваши эксперименты (до и после)</a>»</div><a href="threads/%D0%98%D1%82%D0%BE%D0%B3%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%9C%D0%B0%D1%81%D1%81-%D0%B1%D1%80%D0%BE%D1%81%D0%BE%D0%BA.10091/">Итоги акции &quot;Масс бросок&quot;</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/do4a.3/" class="avatar Av3m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/0/3.jpg?1328796677')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			Месяца 3 назад мы проводили акцию &quot;Масс бросок&quot;, где по крайне низким ценам предлагали боекомплект &quot;ГХРП2/6 + Гинсенг&quot; ...<br />
+ <br />
+Было продано много комплектов, но как всегда только единицы оказались до конца честны. Только единицы завели свои блоги и предоставили информацию о течении эксперимента!!!<br />
+ <br />
+Всё оказалось весьма просто, прозаично и предсказуемо. Что дают препараты, то они и дали по итогу. А именно море:<br />
+ <br />
+- аппетита и усвояемость пищи<br />
+- хороший сон<br />
+- масса из жира и мышц (3-8кг за 4-6недель)<br />
+- заживление травм<br />
+- сильный рост силовых, без приема стероидов (примерно на 7-10%)<br />
+ <br />
+<div style="text-align: center"><img src="http://cs521109.vk.me/u160470093/doc/42be1230d148/1.gif" class="bbCodeImage LbImage" alt="[IMG]" /></div><br />
+ <br />
+Список статей, которые я у нас нашел на тему акции от юзеров:<br />
+ <br />
+- <a href="http://do4a.com/threads/%D0%9C%D0%90%D0%A1%D0%A1-%D0%91%D0%A0%D0%9E%D0%A1%D0%9E%D0%9A-%D0%AD%D0%9A%D0%A1%D0%9F%D0%95%D0%A0%D0%98%D0%9C%D0%95%D0%9D%D0%A2%D0%AB.8281/" class="internalLink">рас</a>- <a href="http://do4a.com/threads/%D0%A2%D1%83%D1%80%D0%B8%D0%BD%D0%B0%D0%B1%D0%BE%D0%BB-ghrp6-ginsrng-kianpi-pil-%D0%BD%D0%B0-6-%D0%BD%D0%B5%D0%B4%D0%B5%D0%BB%D1%8C.8512/" class="internalLink">два (самый классный дневник)</a><br />
+<a href="http://do4a.com/threads/ghrp-2-cjc-1295dac-ginseng-kianpi-pil.8331/" class="internalLink">- три </a>-<a href="http://do4a.com/threads/4-%D0%BD%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8-ghrp6%D1%852-ginseng%D1%852-%D0%9E%D0%BC%D0%BD%D0%B0.9211/#post-365759" class="internalLink"> четыре </a><br />
+ <br />
+<span style="color: #141414">Ч</span>то я могу сказать, это не курс стероидов из деки метана и суста, но эффекты, которые мы получили выше более чем достаточны для цены данного курса и побочек, которых по сути нету. ГХРП дают действительно мощный всплеск СТГ, который в 2-6 раз сильнее по высоте пика, но безусловно короче раза в три, чем у ГР. Также стоит учесть, что долго заряжаться пептидами не стоит, нужно давать отдыхать гипофизу.<br />
+ <br />
+Данный курс будет хорош, как для натуралов, так и для пкт, так и для того, чтобы усилить отдачу при курсе АС. Единственное от чего стоит воздержаться это совмещение данного курса с длинными эфирами и препаратами, которые заливают: метан, анапалон, суст, енка, дека итд...<br />
+ <br />
+Курс, который мы тестировали состоял из ГХРП2 или 6(3 раза в день по 100-200мкг) + 1-2 капсулы гинсенга!!!<br />
+ <br />
+Спасибо товарищи, если есть желание, сделать какую-либо еще акцию, пишите в комментариях!!!
+			<div class="readMore">
+				<a href="threads/%D0%98%D1%82%D0%BE%D0%B3%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%9C%D0%B0%D1%81%D1%81-%D0%B1%D1%80%D0%BE%D1%81%D0%BE%D0%BA.10091/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/do4a.3/" class="author username">Do4a</a>,
+				<a href="threads/%D0%98%D1%82%D0%BE%D0%B3%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%9C%D0%B0%D1%81%D1%81-%D0%B1%D1%80%D0%BE%D1%81%D0%BE%D0%BA.10091/" title="Постоянная ссылка" class="datePermalink" data-time="1370780823"><abbr class="DateTime" data-time="1370780823" data-diff="367665" data-datestring="9 июн 2013" data-timestring="13:27">9 июн 2013 в 13:27</abbr></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%98%D1%82%D0%BE%D0%B3%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8-%D0%9C%D0%B0%D1%81%D1%81-%D0%B1%D1%80%D0%BE%D1%81%D0%BE%D0%BA.10091/" class="item control">Ответов: 70</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-440794" class="message" data-author="G9980">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="blogs/powerlifting.37/">PowerLifting</a>»</div><a href="threads/louie-simmons.10090/">Louie Simmons</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/g9980.15807/" class="avatar Av15807m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/15/15807.jpg?1366400699')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			Приветствую всех, кто зашел почитать мою первую невъебенную статью о великом спортсмене, тренере и просто обычном химике Louie Simmons.<br />
+Сразу предупреждаю, ознаменовалась эра &quot;овердохуябуквья&quot;<br />
+В общем информации по тому, где и кем был рожден Луи в мировой паутине практически нет, а той которою я находил не сильно я бы доверял. Именно поэтому я буду приводить вашему внимаю только проверенную информацию.<br />
+Сразу говорю будет ряд статей о Луи и методах его тренировок. Я думаю людям будет интересно почитать, что и как применять, чтобы стать сильными как Скот Мендельсон в свои лучшие времена! Это моя первая статья и она показывает путь Луи к силе и знаниям!<br />
+<span style="color: #ff0000">Приятного чтения <img src="styles/default/do4a/smiles/-_-.gif" class="mceSmilie" alt=":- -:" title="- -    :- -:" /> </span><br />
+Дальше приведены выдержки из книги Луи. Частично она была переведена мной, частично я позаимствовал (спиздил) перевод у других людей.<br />
+ <br />
+ <br />
+ <br />
+<div style="text-align: center">
+	
+	<img src="attachments/lui-simmons-zhim-ljozha-jpg.13823/" alt="lui-simmons-zhim-ljozha.jpg" class="bbCodeImage LbImage" />
+		
+</div><br />
+Мои воспоминания о пауэрлифтинге начинаются в 1966 году, за месяц до моего ухода в армию. Я чувствую себя как Капитан Ахаб, с...
+			<div class="readMore">
+				<a href="threads/louie-simmons.10090/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/g9980.15807/" class="author username">G9980</a>,
+				<a href="threads/louie-simmons.10090/" title="Постоянная ссылка" class="datePermalink" data-time="1370773852"><abbr class="DateTime" data-time="1370773852" data-diff="374636" data-datestring="9 июн 2013" data-timestring="11:30">9 июн 2013 в 11:30</abbr></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/louie-simmons.10090/" class="item control">Ответов: 35</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-437612" class="message" data-author="mitsu">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="user-blogs/">Персональные блоги</a>»</div><a href="threads/ipamorelin-%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D1%81%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9.10073/">Ipamorelin. Первый селективный</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/mitsu.12800/" class="avatar Av12800m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/12/12800.jpg?1349605444')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			<div style="text-align: center"><img src="http://i5.pixs.ru/storage/8/9/1/ipajpg_9232391_8146891.jpg" class="bbCodeImage LbImage" alt="[IMG]" /></div><br />
+ <br />
+<span style="font-size: small"><span style="font-family: 'tahoma'"><span style="color: #000000">Как оказалось информации по такому «пептидному» продукту, как Ipamorelin, на наших просторах довольно таки мало, а то, что есть, традиционно изобилует легендами и мифами. Поэтому давайте попытаемся хоть немного убрать это «белое пятно в пептидной фармакологии».</span></span></span><br />
+ <br />
+<span style="color: #000000"><span style="font-size: small"><span style="font-family: 'tahoma'">Ipamorelin это релизинг пептид гормона роста. Грелин миметик. Механизм его действия такой же, как и у GHRP 6, GHRP 2, Hexarelin. Он, так же как и его «собратья» передает сигнал в соматотропную клетку о секреции ГР соединяясь со специфичским грелиновым рецептором GHS-R.</span></span></span><br />
+ <br />
+<span style="color: #000000"><span style="font-size: small"><span style="font-family: 'tahoma'">Ipamorelin «увидел мир» в далеком 1998 году. Этот пептид был «изобретен» благодаря замене Аланин-Триптофан фрагмента GHRP на фрагмент Aib-His-D-2-Nal, где His – гистидин, а D-2-Nal это декстро форма 2-нафтиламина. Но, самое интересное –...</span></span></span>
+			<div class="readMore">
+				<a href="threads/ipamorelin-%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D1%81%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9.10073/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/mitsu.12800/" class="author username">mitsu</a>,
+				<a href="threads/ipamorelin-%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D1%81%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9.10073/" title="Постоянная ссылка" class="datePermalink" data-time="1370541177"><span class="DateTime" title="6 июн 2013 в 18:52">6 июн 2013</span></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/ipamorelin-%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D1%81%D0%B5%D0%BB%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9.10073/" class="item control">Ответов: 62</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-437396" class="message" data-author="Xaero">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="blogs/%D0%97%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BC%D1%8B%D1%81%D0%BB%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.31/">Задушевности, мысли и прочая хуета</a>»</div><a href="threads/%D0%B7%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.10071/">задушевности и прочая хуета</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/xaero.19737/" class="avatar Av19737m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/19/19737.jpg?1363445890')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			<span style="font-family: 'Century Gothic'">По мере совершенствования технологий, в том числе, и интернет-технологий, меняется и социальный устрой. Повсеместное распространение интернета наложило отпечаток на развитии не только каждого отдельного индивида, но и всего человечества в целом. Подобное явление нельзя категорично назвать плохим или хорошим, это данность и объективно оно существует. Тем не менее, как и у любой медали, тут есть две стороны. Тебя же, юный падаван, я приглашаю погрузиться чуть глубже, чем в самые недра интернет-клоаки и рассмотреть, пожалуй, самую потаённую сторону некоторых ее обитателей.</span><br />
+ <br />
+<span style="font-family: 'Century Gothic'">Методично оболваниваясь, просиживая задницу в интернетах, регулярно сталкиваюсь с персонажами, которые всегда, сука, всё знают. На сайтах спортивной тематики каждый псевдокачок знает какая именно программа тренировок тебе подойдет, как ты должен питаться и даже какие фармакологические препараты применять, с охуенно умным видом тебе все подробно распишет, прикрываясь...</span>
+			<div class="readMore">
+				<a href="threads/%D0%B7%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.10071/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/xaero.19737/" class="author username">Xaero</a>,
+				<a href="threads/%D0%B7%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.10071/" title="Постоянная ссылка" class="datePermalink" data-time="1370530509"><span class="DateTime" title="6 июн 2013 в 15:55">6 июн 2013</span></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%B7%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.10071/" class="item control">Ответов: 47</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-436994" class="message" data-author="Дмитрий Ткаченко">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="user-blogs/">Персональные блоги</a>»</div><a href="threads/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-%D0%A2%D0%BA%D0%B0%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F.10069/">Дмитрий Ткаченко (Натуральная история)</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-%D0%A2%D0%BA%D0%B0%D1%87%D0%B5%D0%BD%D0%BA%D0%BE.25567/" class="avatar Av25567m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/25/25567.jpg?1370509872')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			Привет всем ))))<br />
+Меня попросили загнать сюда тему для обсуждения )) никто не верить в том что я натурально тренируюсь на протяжении 12 лет из 13(((<br />
+ <br />
+Мои данные :<br />
+ <br />
+Стаж тренировок - 13 лет ..<br />
+рост - 188 см<br />
+вес - 92-94 кг<br />
+ <br />
+Рука - 47(на горячую)<br />
+бедро - 64-66<br />
+талия - 83-85 (с утра)<br />
+Грудь - 125-127(не умею мерить и точно не знаю )) )<br />
+икры - 40 (хуйня)<br />
+шея - 41<br />
+ <br />
+ <br />
+Расскажу о себе ... Качаться начал в 13-14 лет, при росте 178 и весе 57 вроде, в домашних условиях и примерно спустя 3-4 года перешёл на тренажёрку(руки тогда раскачал дома до 40 см).. и попутно занимался Лёгкой атлетикой прыгал и бегал, даже был призёром Казахстана))) ... и вес нельзя было набирать большой и держал при росте 188 к 18-20 годам примерно 83-85 да и не мог больше набрать так как бегал и прыгал много и всё сжигал ))<br />
+ <br />
+Плюс от лёгкой атлетики, мне кажется это то, что рельефность ног появилась на внешнем квадрицепсе и даже не сушась видно её)).. Закончив бегать и прыгать в 20-21 год я взялся серьёзно за качалку и...
+			<div class="readMore">
+				<a href="threads/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-%D0%A2%D0%BA%D0%B0%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F.10069/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-%D0%A2%D0%BA%D0%B0%D1%87%D0%B5%D0%BD%D0%BA%D0%BE.25567/" class="author username">Дмитрий Ткаченко</a>,
+				<a href="threads/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-%D0%A2%D0%BA%D0%B0%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F.10069/" title="Постоянная ссылка" class="datePermalink" data-time="1370512197"><span class="DateTime" title="6 июн 2013 в 10:49">6 июн 2013</span></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-%D0%A2%D0%BA%D0%B0%D1%87%D0%B5%D0%BD%D0%BA%D0%BE-%D0%9D%D0%B0%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F.10069/" class="item control">Ответов: 293</a>
+		</div>
+	</div>
+</div>
+	
+		<div id="post-436412" class="message" data-author="SrVage">
+
+	<div class="subHeading">
+		
+		<h3><div style="float:right; margin-right:115px;">«<a href="blogs/%D0%97%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BC%D1%8B%D1%81%D0%BB%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.31/">Задушевности, мысли и прочая хуета</a>»</div><a href="threads/%D0%9E%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%B8-%D0%BA%D1%83%D0%B4%D0%B0-%D0%BE%D0%BD%D0%BE-%D0%B4%D0%BE%D0%BA%D0%B0%D1%82%D0%B8%D0%BB%D0%BE%D1%81%D1%8C.10066/">Общество и куда оно докатилось...</a></h3>
+	</div>
+
+	<div class="primaryContent">
+		<div class="messageUserBlock">	
+			<div class="avatarHolder"><a href="members/srvage.25548/" class="avatar Av25548m" itemprop="photo" data-avatarHtml="true"><span class="img m" style="background-image: url('data/avatars/m/25/25548.jpg?1370457915')"></span></a></div>
+		</div>
+		<article>
+		<blockquote class="messageText ugc baseHtml">
+			<div class="readMoreHelper"></div>
+			Общество меняется, причем не в лучшую сторону. Общество скорей поддержит существо, которому &quot;досталось тело мужского пола&quot; и которое пытается это исправить сменой пола и пидаристически-истеричным поведением, чем парня, который принимая МУЖСКИЕ гормоны старается стать сильнее, больше, уверенней. Пусть природа и обделила его первобытной мощью варвара, но он слышит зов предков, старается не просрамить их идеалы. Но как же... Любой алкаш же будет с видом знатока говорить, что от &quot;пратеинов&quot; отвалятся яйца, штанга только сорвет спину и весь остальной бред, за который хочется просто молча двинуть в рыло. Но нельзя, он же крутой, сделает таких ”качков” одной левой. Хотя в итоге делает одной правой...когда пишет заявление в органы, что его якобы избили...<br />
+Девушкам не нужен &quot;перекачанный мутант&quot;. Они скорее побегут за смазливым пидорком с кошельком потолще. И ладно бы, если он эти деньги заработал сам... Да и не в деньгах дело. Неужели девушкам настолько хочется равноправия полов, что они...
+			<div class="readMore">
+				<a href="threads/%D0%9E%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%B8-%D0%BA%D1%83%D0%B4%D0%B0-%D0%BE%D0%BD%D0%BE-%D0%B4%D0%BE%D0%BA%D0%B0%D1%82%D0%B8%D0%BB%D0%BE%D1%81%D1%8C.10066/">Читать далее</a>
+			</div>
+		</blockquote>
+		</article>
+		<div class="primaryContentEnd"></div>
+	</div>
+
+	<div class="messageMeta">
+		<div class="privateControls">
+			<span class="item muted">
+				<a href="members/srvage.25548/" class="author username">SrVage</a>,
+				<a href="threads/%D0%9E%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%B8-%D0%BA%D1%83%D0%B4%D0%B0-%D0%BE%D0%BD%D0%BE-%D0%B4%D0%BE%D0%BA%D0%B0%D1%82%D0%B8%D0%BB%D0%BE%D1%81%D1%8C.10066/" title="Постоянная ссылка" class="datePermalink" data-time="1370457640"><span class="DateTime" title="5 июн 2013 в 19:40">5 июн 2013</span></a>
+			</span>
+		</div>
+		<div class="publicControls">
+			<a href="threads/%D0%9E%D0%B1%D1%89%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D0%B8-%D0%BA%D1%83%D0%B4%D0%B0-%D0%BE%D0%BD%D0%BE-%D0%B4%D0%BE%D0%BA%D0%B0%D1%82%D0%B8%D0%BB%D0%BE%D1%81%D1%8C.10066/" class="item control">Ответов: 160</a>
+		</div>
+	</div>
+</div>
+	
+</div>
+
+<blockquote class="messageText ugc baseHtml">
+	<div class="readAllNews">
+		
+			<a href="misc/news-forum-chooser" class="OverlayTrigger Tooltip" title="Новостные разделы">Все новости →</a>
+		
+	</div>
+
+	<div class="readMoreNews">
+	    <a href="." data-href="." class="NewsLoader" data-target="#NewsList" data-count="10" data-oldestDate="1370457640">Предыдущие новости ↓</a>
+	</div>
+
+</blockquote>
+						
+						
+						
+						
+							<!-- login form, to be moved to the upper drop-down -->
+							
+
+
+
+
+
+
+<form action="login/login" method="post" class="xenForm eAuth" id="login" style="display:none">
+
+	
+		<ul id="eAuthUnit">
+			
+				
+				
+					
+					<li><a href="register/facebook?reg=1" class="fbLogin" tabindex="110"><span>Войти через Facebook</span></a></li>
+				
+				
+<li><a href="register/twitter?reg=1" style="text-decoration:none;display: inline-block;">
+   <img src="http://a0.twimg.com/images/dev/buttons/sign-in-with-twitter-d.png" alt="Sign up with Twitter"}" style="margin:0 14px;"/>
+</a></li>
+
+
+<li><a href="register/vkontakte?reg=1" style="text-decoration:none;display: inline-block;">
+
+<div style="margin: 0 auto; width: 125px;" id="vk_login">
+ <table cellspacing="0" cellpadding="0" style="border: 0px; font-family: tahoma, arial, verdana, sans-serif, Lucida Sans; font-size: 10px;">
+  <tbody>
+   <tr style="vertical-align: middle">
+    <td>
+     <div style="border: 1px solid #3b6798;border-radius: 2px 0px 0px 2px;">
+      <div style="border-width: 1px; border-style: solid; border-right: 1px solid rgb(92, 130, 171); border-color: rgb(126, 156, 188) rgb(92, 130, 171) rgb(92, 130, 171); background-color: rgb(109, 141, 177); color: rgb(255, 255, 255); text-shadow: 0px 1px rgb(69, 104, 142); height: 15px; padding: 2px 4px 0px 6px; line-height: 13px;">
+        Войти
+      </div>
+     </div>
+    </td>
+    <td>
+     <div style="background: url(http://vk.com/images/btns.png) 0px -42px no-repeat; width: 21px; height: 21px">
+     </div>
+    </td>
+    <td>
+     <div style="border: 1px solid rgb(59, 103, 152); border-radius: 0px 2px 2px 0px; background-position: 0px -42px;">
+      <div style="border-width: 1px; border-style: solid; border-right: 1px solid rgb(92, 130, 171); border-color: rgb(126, 156, 188) rgb(92, 130, 171) rgb(92, 130, 171); background-color: rgb(109, 141, 177); color: rgb(255, 255, 255); text-shadow: 0px 1px rgb(69, 104, 142); height: 15px; padding: 2px 6px 0px 4px; line-height: 13px;">
+       Контакте
+      </div>
+     </div>
+    </td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+</a></li>
+
+
+			
+		</ul>
+	
+
+	<div class="ctrlWrapper">
+		<dl class="ctrlUnit">
+			<dt><label for="LoginControl">Ваше имя или e-mail:</label></dt>
+			<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101" /></dd>
+		</dl>
+	
+	
+		<dl class="ctrlUnit">
+			<dt>
+				<label for="ctrl_password">У Вас уже есть учётная запись?</label>
+				<div class="lostPassword"><a href="lost-password/" tabindex="106">Забыли пароль?</a></div>
+			</dt>
+			<dd>
+				<ul>
+					<li><label for="ctrl_not_registered"><input type="radio" name="register" value="1" id="ctrl_not_registered" tabindex="105" />
+						Нет, зарегистрироваться сейчас.</label></li>
+					<li><label for="ctrl_registered"><input type="radio" name="register" value="0" id="ctrl_registered" tabindex="105" checked="checked" class="Disabler" />
+						Да, мой пароль:</label></li>
+					<li id="ctrl_registered_Disabler">
+						<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102" />
+					</li>
+				</ul>
+			</dd>
+		</dl>
+	
+		
+		<dl class="ctrlUnit submitUnit">
+			<dt></dt>
+			<dd>
+				<input type="submit" class="button primary" value="Вход" tabindex="104" data-loginPhrase="Вход" data-signupPhrase="Регистрация" />
+				<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103" /> Запомнить меня</label>
+			</dd>
+		</dl>
+	</div>
+
+	<input type="hidden" name="cookie_check" value="1" />
+	<input type="hidden" name="redirect" value="/" />
+	<input type="hidden" name="_xfToken" value="" />
+
+</form>
+						
+						
+					</div>
+				</div>
+				
+				<!-- sidebar -->
+				<aside>
+					<div class="sidebar">
+						
+						
+						
+
+<div class="section loginButton">		
+	<div class="secondaryContent">
+		<label for="LoginControl" id="SignupButton"><a href="login/" class="inner">Регистрация</a></label>
+	</div>
+</div>
+
+
+
+
+						<div class="section">
+   <div class="secondaryContent">
+	<h3 class="textHeading larger">Реклама</h3>
+        <div style="text-align: center">
+             <a href="http://vk.com/peptitts" rel="nofollow" target="_blank"><img  style="width:238px;" alt="sport.tut" src="/styles/peps_banner.png" /></a><a href="http://vk.com/album-26456494_143810966" rel="nofollow" target="_blank"><img  style="width:238px;" alt="sport.tut" src="/styles/pitanie_banner.png" /></a><a href="http://www.kingprotein.ru/" rel="nofollow" target="_blank"><img style="width:238px;" alt="kingprotein" src="http://do4a.com/styles/kingprotein.jpg"/></a>      
+        </div>
+   </div>
+</div>
+
+
+<!-- block: news_navigation -->
+
+<div class="section blogs">
+	<div class="secondaryContent">
+		<h3>Навигация</h3>
+		<ul class="blockLinksList">
+		
+			<li><a href="." data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="0">Все новости</a></li>
+			
+				<li><a href="user-blogs/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="2">Персональные блоги</a></li>
+			
+				<li><a href="blogs/%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8.29/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="29">Девушки</a></li>
+			
+				<li><a href="blogs/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%86%D0%B8%D1%8F.30/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="30">Мотивация</a></li>
+			
+				<li><a href="blogs/%D0%97%D0%B0%D0%B4%D1%83%D1%88%D0%B5%D0%B2%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BC%D1%8B%D1%81%D0%BB%D0%B8-%D0%B8-%D0%BF%D1%80%D0%BE%D1%87%D0%B0%D1%8F-%D1%85%D1%83%D0%B5%D1%82%D0%B0.31/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="31">Задушевности, мысли и прочая хуета</a></li>
+			
+				<li><a href="blogs/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9-%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB.32/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="32">Технический раздел</a></li>
+			
+				<li><a href="blogs/%D0%91%D0%BE%D0%B4%D0%B8%D0%B1%D0%B8%D0%BB%D0%B4%D0%B8%D0%BD%D0%B3.33/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="33">Бодибилдинг</a></li>
+			
+				<li><a href="blogs/c%D1%82%D0%B5%D1%80%D0%BE%D0%B8%D0%B4%D1%8B-%D1%84%D0%B0%D1%80%D0%BC%D0%B0%D0%BA%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F.34/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="34">Cтероиды (фармакология)</a></li>
+			
+				<li><a href="blogs/%D0%97%D0%BD%D0%B0%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D0%BE%D1%81%D1%82%D0%B8-%D0%B8%D0%B7-%D0%BC%D0%B8%D1%80%D0%B0-%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0.35/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="35">Знаменитости из мира спорта</a></li>
+			
+				<li><a href="blogs/%D0%AD%D0%BA%D1%81%D1%82%D1%80%D0%B5%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%B2%D0%B8%D0%B4%D1%8B-%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0.36/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="36">Экстремальные виды спорта</a></li>
+			
+				<li><a href="blogs/powerlifting.37/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="37">PowerLifting</a></li>
+			
+				<li><a href="blogs/%D0%A1%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B5-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D0%B5.38/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="38">Спортивное питание!</a></li>
+			
+				<li><a href="blogs/%D0%A1%D1%83%D1%88%D0%BA%D0%B0-%D0%BF%D0%BE%D1%85%D1%83%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B4%D0%B8%D0%B5%D1%82%D1%8B-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%B8%D0%B5.39/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="39">Сушка, похудение, диеты (питание)</a></li>
+			
+				<li><a href="blogs/%D0%AE%D0%BC%D0%BE%D1%80.40/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="40">Юмор</a></li>
+			
+				<li><a href="blogs/bodyweight-training.41/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="41">BodyWeight Training</a></li>
+			
+				<li><a href="blogs/%D0%9F%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B8.42/" data-href="." class="NewsLoader forum" data-target="#NewsList" data-reload="forum" data-count="10" data-forumid="42">Полезности</a></li>
+			
+		
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+
+<div class="section latestPosts">
+    <div class="secondaryContent">
+        <h3>Последние статьи</h3>
+        <ol>
+            
+                <li>
+                    
+                    <a href="threads/%D0%94%D1%83%D0%BC%D0%B0%D0%B5%D1%88%D1%8C-%D1%82%D1%8B-%D1%83%D0%BC%D0%B5%D0%B5%D1%88%D1%8C-%D0%B6%D0%B0%D1%82%D1%8C-%D0%BB%D0%B5%D0%B6%D0%B0.10128/" class="postLink">Думаешь ты умеешь жать лежа?</a>
+		    <span class="footnote"><a href="members/senna.16049/" class="username muted">senna</a>, <abbr class="DateTime faint" data-time="1371140440" data-diff="8048" data-datestring="13 июн 2013" data-timestring="17:20">13 июн 2013 в 17:20</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%94%D1%83%D0%BC%D0%B0%D0%B5%D1%88%D1%8C-%D1%82%D1%8B-%D1%83%D0%BC%D0%B5%D0%B5%D1%88%D1%8C-%D0%BF%D1%80%D0%B8%D1%81%D0%B5%D0%B4%D0%B0%D1%82%D1%8C.10127/" class="postLink">Думаешь ты умеешь приседать?</a>
+		    <span class="footnote"><a href="members/senna.16049/" class="username muted">senna</a>, <abbr class="DateTime faint" data-time="1371140073" data-diff="8415" data-datestring="13 июн 2013" data-timestring="17:14">13 июн 2013 в 17:14</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%BD%D1%83%D0%B6%D0%BD%D0%B0-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C-%D1%85%D0%B5%D0%BB%D0%BF-%D0%BC%D0%B8%D0%B8%D0%B8%D0%B8%D0%B8.10125/" class="postLink">нужна помощь!!!!хелп миииии!!!</a>
+		    <span class="footnote"><a href="members/crip2.25894/" class="username muted">crip2</a>, <abbr class="DateTime faint" data-time="1371120268" data-diff="28220" data-datestring="13 июн 2013" data-timestring="11:44">13 июн 2013 в 11:44</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%94%D0%B5%D0%BD%D1%8C-%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%BA%D0%B8-%D0%B2-%D0%B6%D0%B8%D0%BC%D0%B5.10124/" class="postLink">День проходки в жиме</a>
+		    <span class="footnote"><a href="members/michaelnsk.22259/" class="username muted">Michaelnsk</a>, <abbr class="DateTime faint" data-time="1371118094" data-diff="30394" data-datestring="13 июн 2013" data-timestring="11:08">13 июн 2013 в 11:08</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/furious-pete-%D0%93%D0%95%D0%99%D0%9D%D0%95%D0%A0-%D0%BD%D0%B0-7350-%D0%BA%D0%BA%D0%B0%D0%BB.10123/" class="postLink">Furious Pete ГЕЙНЕР на 7350 ккал</a>
+		    <span class="footnote"><a href="members/nomichi.22823/" class="username muted">Nomichi</a>, <abbr class="DateTime faint" data-time="1371058928" data-diff="89560" data-datestring="12 июн 2013" data-timestring="18:42">12 июн 2013 в 18:42</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%94%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%A4%D0%B5%D1%80%D0%BC%D0%B5%D0%BD%D1%82%D1%8B.10122/" class="postLink">Дополнительные Ферменты.</a>
+		    <span class="footnote"><a href="members/steisha.25804/" class="username muted">steisha</a>, <abbr class="DateTime faint" data-time="1371055489" data-diff="92999" data-datestring="12 июн 2013" data-timestring="17:44">12 июн 2013 в 17:44</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%BC%D1%8F%D1%81%D0%BE%D0%BD%D0%B0%D0%B1%D0%BE%D1%80-%D0%9F%D0%93-%D0%BF%D0%BE%D1%85%D1%83%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82.10121/" class="postLink">мясонабор+ПГ+похудение=результат?</a>
+		    <span class="footnote"><a href="members/physik.16215/" class="username muted">physik</a>, <abbr class="DateTime faint" data-time="1371054538" data-diff="93950" data-datestring="12 июн 2013" data-timestring="17:28">12 июн 2013 в 17:28</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%9D%D1%83%D0%B6%D0%B5%D0%BD-%D1%81%D0%BE%D0%B2%D0%B5%D1%82.10119/" class="postLink">Нужен совет</a>
+		    <span class="footnote"><a href="members/froome.22126/" class="username muted">Froome</a>, <abbr class="DateTime faint" data-time="1371052950" data-diff="95538" data-datestring="12 июн 2013" data-timestring="17:02">12 июн 2013 в 17:02</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/real-motivation.10118/" class="postLink">real motivation</a>
+		    <span class="footnote"><a href="members/physik.16215/" class="username muted">physik</a>, <abbr class="DateTime faint" data-time="1371030238" data-diff="118250" data-datestring="12 июн 2013" data-timestring="10:43">12 июн 2013 в 10:43</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%90%D0%BF%D1%82%D0%B5%D1%87%D0%BD%D1%8B%D0%B5-%D0%BD%D1%8F%D1%88%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D0%B8.10117/" class="postLink">Аптечные *няши для психики*.</a>
+		    <span class="footnote"><a href="members/%D0%A7%D0%B5%D1%80%D0%B5%D0%BF%D0%B0%D1%88%D0%BA%D0%B0.18155/" class="username muted">Черепашка</a>, <abbr class="DateTime faint" data-time="1370999355" data-diff="149133" data-datestring="12 июн 2013" data-timestring="02:09">12 июн 2013 в 02:09</abbr></span>
+                </li>
+            
+        </ol>
+    </div>
+</div>
+
+
+<div class="section latestPosts">
+    <div class="secondaryContent">
+        <h3>Последние темы на форуме</h3>
+        <ol>
+            
+                <li>
+                    
+                    <a href="threads/%D0%9F%D0%BB%D1%8F%D0%B6%D0%BD%D0%B0%D1%8F-%D1%82%D0%B5%D0%BC%D0%B0.10126/" class="postLink">Пляжная тема</a>
+		    <span class="footnote"><a href="members/mr-money.8684/" class="username muted">Mr Money</a>, <abbr class="DateTime faint" data-time="1371122273" data-diff="26215" data-datestring="13 июн 2013" data-timestring="12:17">13 июн 2013 в 12:17</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B-%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA-%D0%BE%D1%82-%D0%94%D0%B6%D0%BE-%D0%94%D0%B5%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D0%BE.10120/" class="postLink">Принципы тренировок от Джо ДеФранко</a>
+		    <span class="footnote"><a href="members/kevorkian.14390/" class="username muted">kevorkian</a>, <abbr class="DateTime faint" data-time="1371053791" data-diff="94697" data-datestring="12 июн 2013" data-timestring="17:16">12 июн 2013 в 17:16</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%A0%D0%B0%D1%81%D1%82%D1%8F%D0%B6%D0%BA%D0%B0-%D0%B8-%D0%B5%D0%B5-%D1%80%D0%BE%D0%BB%D1%8C-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D0%B9-%D0%BA%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81.10096/" class="postLink">Растяжка и ее роль (+ мелкий конкурс)</a>
+		    <span class="footnote"><a href="members/%D0%9A%D0%BE%D0%BB%D1%8F-%D0%90%D0%BD%D1%82%D0%B8%D0%B3%D0%B5%D0%BD.6317/" class="username muted">Коля Антиген</a>, <abbr class="DateTime faint" data-time="1370825179" data-diff="323309" data-datestring="10 июн 2013" data-timestring="01:46">10 июн 2013 в 01:46</abbr></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D0%BE%D0%B4%D0%BD%D0%BE%D0%B9-%D0%BA%D0%B0%D0%BF%D0%BB%D0%B8.10067/" class="postLink">История одной капли</a>
+		    <span class="footnote"><a href="members/vindikat.19241/" class="username muted">vindikat</a>, <span class="DateTime faint" title="5 июн 2013 в 20:01">5 июн 2013</span></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%94%D0%BE%D1%87%D0%B0-%D0%B8-%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B8%D0%B4.10055/" class="postLink">Доча и андроид</a>
+		    <span class="footnote"><a href="members/sa_lex.22360/" class="username muted">sa_lex</a>, <span class="DateTime faint" title="3 июн 2013 в 18:15">3 июн 2013</span></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%A7%D1%82%D0%BE-%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C-%D0%B5%D1%81%D0%BB%D0%B8-%D0%B7%D0%B0%D0%BF%D0%BE%D1%80%D0%BE%D0%BB-%D0%BF%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%BA%D1%83.10034/" class="postLink">Что делать если запорол проходку</a>
+		    <span class="footnote"><a href="members/drarara.7886/" class="username muted">drarara</a>, <span class="DateTime faint" title="1 июн 2013 в 13:31">1 июн 2013</span></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%9F%D0%B5%D0%BF%D1%82%D0%B8%D0%B4%D1%8B-%D0%B8-%D0%93%D0%BE%D1%80%D0%BC%D0%BE%D0%BD-%D1%80%D0%BE%D1%81%D1%82%D0%B0.10009/" class="postLink">Пептиды и Гормон роста</a>
+		    <span class="footnote"><a href="members/do4a.3/" class="username muted">Do4a</a>, <span class="DateTime faint" title="27 май 2013 в 11:36">27 май 2013</span></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%9F%D0%B5%D0%BF%D1%82%D0%B8%D0%B4%D1%8B-%D0%B8-%D0%93%D0%BE%D1%80%D0%BC%D0%BE%D0%BD-%D1%80%D0%BE%D1%81%D1%82%D0%B0.10008/" class="postLink">Пептиды и Гормон роста</a>
+		    <span class="footnote"><a href="members/do4a.3/" class="username muted">Do4a</a>, <span class="DateTime faint" title="27 май 2013 в 11:34">27 май 2013</span></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-5-3-1-%D0%94%D0%B6%D0%B8%D0%BC%D0%B0-%D0%92%D0%B5%D0%BD%D0%B4%D0%BB%D0%B5%D1%80%D0%B0.10003/" class="postLink">Система 5/3/1 Джима Вендлера</a>
+		    <span class="footnote"><a href="members/kevorkian.14390/" class="username muted">kevorkian</a>, <span class="DateTime faint" title="26 май 2013 в 19:24">26 май 2013</span></span>
+                </li>
+            
+                <li>
+                    
+                    <a href="threads/%D0%9F%D0%B5%D1%80%D0%B5%D0%B5%D0%B7%D0%B4-%D0%B2-%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%83-%D0%BC%D0%B5%D1%81%D1%82%D0%BE-%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA.9976/" class="postLink">Переезд в Москву, место тренировок?</a>
+		    <span class="footnote"><a href="members/sh1zoman.7963/" class="username muted">Sh1zoman</a>, <span class="DateTime faint" title="23 май 2013 в 06:03">23 май 2013</span></span>
+                </li>
+            
+        </ol>
+    </div>
+</div>
+
+<!-- block: sidebar_online_users -->
+<div class="section membersOnline userList">		
+	<div class="secondaryContent">
+		<h3><a href="online/" title="Показать всех пользователей, кто онлайн">Пользователи онлайн</a></h3>
+		
+		
+		
+			
+			
+			<ol class="listInline">
+				
+					
+						<li>
+						
+							<a href="members/fergyc.21756/"
+								class="username">fergyc</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/sergefan.19857/"
+								class="username">Sergefan</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/sic.18135/"
+								class="username">SIC</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/chemp.25211/"
+								class="username">CHEMP.</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/zelmobil.15718/"
+								class="username">zelmobil</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/prophecy.22840/"
+								class="username">prophecy</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/supernewcalculator.1925/"
+								class="username">SuperNewCalculator</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%92%D0%BB%D0%B0%D0%B4-%D0%9B%D0%B5%D1%88%D0%BA%D0%B5%D0%B2%D0%B8%D1%87.16300/"
+								class="username">Влад Лешкевич</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/vurf.24398/"
+								class="username">vurf</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/wolfwood.25901/"
+								class="username">Wolfwood</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/bushid0.21910/"
+								class="username">bushid0</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/fubkaarc.19430/"
+								class="username">FubkaArc</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/buldozer.25181/"
+								class="username">BulDozer</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/director.25298/"
+								class="username">Director</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/manpower.9646/"
+								class="username">ManPower</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/clavicus-vile.17851/"
+								class="username">Clavicus Vile</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/polosaty.16826/"
+								class="username">polosaty</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/simulacron.18287/"
+								class="username">simulacron</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/djek91.8750/"
+								class="username">Djek91</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/g9980.15807/"
+								class="username">G9980</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/www-wax.24533/"
+								class="username">www-wax</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%9C%D1%8C%D0%B5%D0%BB%D1%8C%D0%BD%D0%B5%D1%80.9187/"
+								class="username">Мьельнер</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9-%D0%B8-%D0%BD%D0%B5-%D1%81%D1%82%D1%80%D0%B0%D1%88%D0%BD%D1%8B%D0%B9.17903/"
+								class="username">большой и не страшный</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/antt.16902/"
+								class="username">Antt</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%9E%D0%BB%D0%B5%D0%B3.17908/"
+								class="username">Олег)))</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/maxz.23051/"
+								class="username">Maxz</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/by_bizzard.24412/"
+								class="username">by_bizzard</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/physik.16215/"
+								class="username">physik</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%A1%D0%B5%D1%80%D0%B4%D0%B5%D1%87%D0%BD%D1%8B%D0%B9.20001/"
+								class="username">Сердечный</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/sergey__.16024/"
+								class="username">Sergey__</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%A0%D0%B0%D0%BC%D0%B0%D0%B9.19898/"
+								class="username">Рамай</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/cheerfuldionys.25862/"
+								class="username">CheerfulDionys</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/pavelgym.5919/"
+								class="username">PavelGYM</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/denisius11.119/"
+								class="username">denisius11</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/serxioserxio.15794/"
+								class="username">Serxioserxio</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%9F%D0%BE%D1%87%D1%82%D0%B8_%D0%A2%D1%83%D1%80%D0%BD%D0%B8%D0%BA%D0%BC%D0%B5%D0%BD.11271/"
+								class="username">Почти_Турникмен</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/pharmacomlabs.21163/"
+								class="username">Pharmacomlabs</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/pe3a4ok.12798/"
+								class="username">pe3a4ok</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/the-xx.24842/"
+								class="username">The XX</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/skif.5545/"
+								class="username">Skif</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/bolat.18305/"
+								class="username">Bolat</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/alex_31.1789/"
+								class="username">Alex_31</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/darlingman.23579/"
+								class="username">Darlingman</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%A1%D0%B5%D1%80%D0%B6-%D0%90%D0%BF%D0%BE%D0%BB%D0%BE%D0%BD%D0%BE%D0%B2.16643/"
+								class="username">Серж Аполонов</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/dimarik1988.25750/"
+								class="username">dimarik1988</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/x_flash_x.20722/"
+								class="username">x_Flash_x</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/filipp.19017/"
+								class="username">Filipp</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/sedov.7318/"
+								class="username">sedov</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/iron15.12996/"
+								class="username">IRON15</a>,
+						
+						</li>
+					
+				
+					
+						<li>
+						
+							<a href="members/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80-%D0%92%D0%B0%D0%BD%D1%82%D0%B5%D0%B4.12636/"
+								class="username">Александр Вантед</a>
+						
+						</li>
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+					
+				
+				
+					<li class="moreLink">... <a href="online/" title="Показать всех посетителей">и ещё 60</a></li>
+				
+			</ol>
+		
+		
+		<div class="footnote">
+			Сейчас онлайн: 683<br />(пользователей: 130, гостей: 553)
+		</div>
+	</div>
+</div>
+<!-- end block: sidebar_online_users -->
+
+<!-- block: forum_stats -->
+<div class="section">
+	<div class="secondaryContent statsList" id="boardStats">
+		<h3>Статистика форума</h3>
+		<div class="pairsJustified">
+			<dl class="discussionCount"><dt>Темы:</dt>
+				<dd>5.070</dd></dl>
+			<dl class="messageCount"><dt>Сообщения:</dt>
+				<dd>362.546</dd></dl>
+			<dl class="memberCount"><dt>Пользователи:</dt>
+				<dd>25.210</dd></dl>
+			<dl><dt>Новый пользователь:</dt>
+				<dd><a href="members/elenka-lutsenko.25914/" class="username">Elenka Lutsenko</a></dd></dl>
+			<!-- slot: forum_stats_extra -->
+		</div>
+	</div>
+</div>
+<!-- end block: forum_stats -->
+
+	
+
+	
+	<div class="section infoBlock sharePage">
+		<div class="secondaryContent">
+			<h3>Поделиться этой страницей</h3>
+			
+				
+				
+					<div class="tweet shareControl" style="float:none;">
+						<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
+							data-lang="en"
+							data-url="/"
+							
+							>Tweet</a>
+					</div>
+						
+				
+					<div class="facebookLike shareControl" style="float:none;">
+						
+						<fb:like href="/" layout="button_count" action="recommend" font="trebuchet ms" colorscheme="light"></fb:like>
+					</div>
+				
+				
+					<div class="plusone shareControl" style="float:none;">
+						<div class="g-plusone" data-size="medium" data-count="true" data-href="/"></div>
+					</div>
+					
+						
+			
+		</div>
+	</div>
+
+						
+<div class="section">
+   <div class="secondaryContent">
+	<h3 class="textHeading larger">Реклама</h3>
+        <a href="http://fit4life.ru/" rel="nofollow" target="_blank"><img style="width:238px;" alt="fit4life" src="/styles/fit4life.jpg"/></a>
+        </div>
+   </div>
+</div>
+						
+					</div>
+				</aside>
+			
+			
+						
+			<div class="breadBoxBottom">
+
+<nav>
+	
+
+	<fieldset class="breadcrumb">
+		<a href="misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheOverlay="true" title="Открыть быструю навигацию"><!--Перейти к...--></a>
+			
+		<div class="boardTitle"><strong>do4a.com - второе дыхание</strong></div>
+		
+		<span class="crumbs">
+			
+			
+			
+				<span class="crust">
+					<a href="." class="crumb"><span>Главная</span></a>
+					<span class="arrow"><span>&gt;</span></span>
+				</span>
+			
+			
+			
+		</span>
+	</fieldset>
+</nav></div>
+			
+						
+			
+
+
+						
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+<footer>
+	
+
+
+<div class="footer">
+	<div class="pageWidth">
+		<div class="pageContent">
+			
+			<dl class="choosers">
+				
+				
+					<dt>Язык</dt>
+					<dd><a href="misc/language?redirect=%2F" class="OverlayTrigger Tooltip" title="Выбор языка" rel="nofollow">Russian (RU)</a></dd>
+				
+			</dl>
+			
+			
+			<ul class="footerLinks">
+			<li><a href="popular/" data-overlayOptions="{&quot;fixed&quot;:false}">Популярное</a></li>
+				
+					<li><a href="misc/contact">Обратная связь</a></li>
+				
+				<li><a href="http://do4a.com">Главная</a></li>
+				<li><a href="/#navigation">Вверх</a></li>
+				<li><a href="forums/-/index.rss" rel="alternate" class="globalFeed" target="_blank"
+					title="RSS лента для do4a.com - второе дыхание">RSS</a></li>
+			
+<li><!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t26.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число посетителей за"+
+" сегодня' "+
+"border='0' width='88' height='15'><\/a>")
+//--></script><!--/LiveInternet--></li>
+
+			</ul>
+			
+			<span class="helper"></span>
+		</div>
+	</div>
+</div>
+
+<div class="footerLegal">
+	<div class="pageWidth">
+		<div class="pageContent">
+			<div id="copyright"><a href="http://xenforo.com" class="concealed">Forum software by XenForo&trade; &copy;2010-2013 XenForo Ltd.</a><div style="text-align: left;">Перевод: <a class="concealed" href="http://www.xf-russia.ru" target="_blank">XF-Russia.ru</a></div></div>
+
+			<ul id="legal">
+			
+				<li><a href="help/terms">Условия и правила</a></li>
+				
+			
+			</ul>
+		
+			
+				
+					<dl class="pairsInline" title="Social_ControllerPublic_News-&gt;Index (Social_ViewPublic_News_View)">
+					
+						<dt>Время:</dt> <dd><a href="/?_debug=1">0,0908 сек.</a></dd>
+						<dt>Память:</dt> <dd>7,393 МБ</dd>
+						<dt>Запросов к БД:</dt> <dd>11</dd>
+					
+					</dl>
+				
+			
+			
+			<span class="helper"></span>
+		</div>
+	</div>	
+</div>
+
+</footer>
+
+<script>
+
+
+jQuery.extend(true, XenForo,
+{
+	visitor: { user_id: 0 },
+	serverTimeInfo:
+	{
+		now: 1371148488,
+		today: 1371078000,
+		todayDow: 4
+	},
+	_lightBoxUniversal: "0",
+	_enableOverlays: "1",
+	_animationSpeedMultiplier: "1",
+	_overlayConfig:
+	{
+		top: "10%",
+		speed: 200,
+		closeSpeed: 100,
+		mask:
+		{
+			color: "rgb(255, 255, 255)",
+			opacity: "0.6",
+			loadSpeed: 200,
+			closeSpeed: 100
+		}
+	},
+	_ignoredUsers: [],
+	_loadedScripts: {"social_sidebar_posts":true,"sidebar_share_page":true,"social_news":true,"discussion_list":true,"message":true,"message_user_info":true,"login_bar":true,"facebook":true,"do4a":true,"js\/social\/news.js?_v=3067a8be":true},
+	_cookieConfig: { path: "/", domain: "", prefix: "xf_"},
+	_csrfToken: "",
+	_csrfRefreshUrl: "login/csrf-token-refresh",
+	_jsVersion: "3067a8be"
+});
+jQuery.extend(XenForo.phrases,
+{
+	cancel: "Отмена",
+
+	a_moment_ago:    "только что",
+	one_minute_ago:  "минуту назад",
+	x_minutes_ago:   "%minutes% мин. назад",
+	today_at_x:      "Сегодня, в %time%",
+	yesterday_at_x:  "Вчера, в %time%",
+	day_x_at_time_y: "%day% в %time%",
+
+	day0: "Воскресенье",
+	day1: "Понедельник",
+	day2: "Вторник",
+	day3: "Среда",
+	day4: "Четверг",
+	day5: "Пятница",
+	day6: "Суббота",
+
+	_months: "Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь",
+	_daysShort: "Вс,Пн,Вт,Ср,Чт,Пт,Сб",
+
+	following_error_occurred: "Произошла ошибка",
+	server_did_not_respond_in_time_try_again: "Сервер не ответил вовремя. Пожалуйста, попробуйте снова.",
+	logging_in: "Авторизация",
+	click_image_show_full_size_version: "Нажмите на это изображение для просмотра полноразмерной версии.",
+	show_hidden_content_by_x: "Показать скрытое содержимое от {names}"
+});
+
+// Facebook Javascript SDK
+XenForo.Facebook.appId = "193513917409857";
+XenForo.Facebook.forceInit = true;
+
+
+</script>
+
+
+
+
+<script type="text/javascript">
+    var reformalOptions = {
+        project_id: 57625,
+        project_host: "do4a.reformal.ru",
+        tab_orientation: "left",
+        tab_indent: "50%",
+        tab_bg_color: "#016AA7",
+        tab_border_color: "#FFFFFF",
+        tab_image_url: "http://tab.reformal.ru/T9GC0LfRi9Cy0Ysg0Lgg0L%252FRgNC10LTQu9C%252B0LbQtdC90LjRjw==/FFFFFF/2a94cfe6511106e7a48d0af3904e3090/left/1/tab.png",
+        tab_border_width: 2
+    };
+    
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript'; script.async = true;
+        script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+    })();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+<script type="text/javascript">
+try { var yaCounter20839828 = new Ya.Metrika({id:20839828,
+          webvisor:true,
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          trackHash:true});
+} catch(e) { }
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/20839828" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- google anal-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28576039-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

@@ -59,7 +59,7 @@ class CMF_BbCodes_Listener
 	}
 	public static function initDependencies(XenForo_Dependencies_Abstract $dependencies, array $data)
 	{
-		CMF_BbCodes_Template_Helper_Core::$parentHelper=XenForo_Template_Helper_Core::$helperCallbacks['snippet'];
-		XenForo_Template_Helper_Core::$helperCallbacks['snippet'] = array('CMF_BbCodes_Template_Helper_Core', 'helperSnippet');
+		/*CMF_BbCodes_Template_Helper_Core::$parentHelper=XenForo_Template_Helper_Core::$helperCallbacks['snippet'];
+		XenForo_Template_Helper_Core::$helperCallbacks['snippet'] = array('CMF_BbCodes_Template_Helper_Core', 'helperSnippet');*/
 	}
 }
